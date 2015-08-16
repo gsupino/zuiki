@@ -11,6 +11,7 @@ global.__SERVER__ = true;
 global.__DISABLE_SSR__ = false;  // <----- DISABLES SERVER SIDE RENDERING FOR ERROR DEBUGGING
 global.__DEVELOPMENT__ = process.env.NODE_ENV !== 'production';
 
+/*
 if (process.env.NODE_ENV !== 'production') {
   if (!require('piping')({
       hook: true,
@@ -19,5 +20,6 @@ if (process.env.NODE_ENV !== 'production') {
     return;
   }
 }
+*/
 
 require('./src/server');

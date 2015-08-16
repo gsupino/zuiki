@@ -1,8 +1,9 @@
 import {
-    IMAGE_LOAD,
-    IMAGE_LOAD_SUCCESS,
-    IMAGE_LOAD_FAIL
-} from '../actions/actionTypes';
+    IMAGE_REQUEST ,
+    IMAGE_SUCCESS,
+    IMAGE_FAILURE
+    } from '../actions/actionTypes';
+
 
 
 const initialState = {
@@ -11,19 +12,23 @@ const initialState = {
 
 export default function image(state = initialState, action = {}) {
     switch (action.type) {
-        case IMAGE_LOAD:
+        case IMAGE_REQUEST:
+            console.log('start');
+            console.log(action);
+            console.log('end');
             return {
                 ...state,
                 loading: true
             };
-        case IMAGE_LOAD_SUCCESS:
+        case IMAGE_SUCCESS:
+            console.log(action);
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                data: action.result
+                data: action.res
             };
-        case IMAGE_LOAD_FAIL:
+        case IMAGE_FAILURE:
             return {
                 ...state,
                 loading: false,

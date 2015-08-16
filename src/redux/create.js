@@ -12,13 +12,13 @@ export default function(data={}) {
     if (__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__) {
         const { devTools, persistState } = require('redux-devtools');
         finalCreateStore = compose(
-            applyMiddleware( thunMiddleware,callAPIMiddleware,loggerMiddleware,fetchMiddleware),
+            applyMiddleware( thunMiddleware,callAPIMiddleware),
             devTools(),
             persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
             createStore
         );
     } else {
-        finalCreateStore = applyMiddleware(thunMiddleware,callAPIMiddleware,loggerMiddleware,fetchMiddleware)(createStore);
+        finalCreateStore = applyMiddleware(thunMiddleware,callAPIMiddleware)(createStore);
     }
     return finalCreateStore(reducer, data);
 }

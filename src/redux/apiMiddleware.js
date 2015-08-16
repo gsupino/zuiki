@@ -52,7 +52,6 @@ function callAPIMiddleware({ dispatch, getState }) {
             dispatch(Object.assign({}, payload, {
                 type: requestType
             }));
-            console.log(formatUrl(endpoint))
             return fetch(formatUrl(endpoint), param)
                 .then(checkStatus)
                 .then(res => res.json())

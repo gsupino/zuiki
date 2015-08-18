@@ -1,7 +1,7 @@
-export const INFO_LOAD = 'INFO_LOAD';
-export const INFO_LOAD_SUCCESS = 'INFO_LOAD_SUCCESS';
-export const INFO_LOAD_FAIL = 'INFO_LOAD_FAIL';
-
 export const IMAGE_REQUEST = 'IMAGE_REQUEST';
 export const IMAGE_SUCCESS = 'IMAGE_SUCCESS';
 export const IMAGE_FAILURE = 'IMAGE_FAILURE';
+
+export const USER_REQUEST = 'USER_REQUEST';
+export const USER_SUCCESS = 'USER_SUCCESS';
+export const USER_FAILURE = 'USER_FAILURE';

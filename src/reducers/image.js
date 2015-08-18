@@ -13,20 +13,16 @@ const initialState = {
 export default function image(state = initialState, action = {}) {
     switch (action.type) {
         case IMAGE_REQUEST:
-            console.log('start');
-            console.log(action);
-            console.log('end');
             return {
                 ...state,
                 loading: true
             };
         case IMAGE_SUCCESS:
-            console.log(action);
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                data: action.res
+                data: action.response
             };
         case IMAGE_FAILURE:
             return {

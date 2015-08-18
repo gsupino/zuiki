@@ -1,7 +1,7 @@
 /*global __CLIENT__*/
 import React from 'react';
 import {Link} from 'react-router';
-import {load} from '../actions/imageActions';
+import {loadImages} from '../actions/imageActions';
 import View from './View';
 import Container from './Container';
 import Paper from './Paper';
@@ -9,7 +9,6 @@ import Block from './Block';
 
 export default class App {
     render() {
-        console.log(React.Children.count(this.props.children))
         return (
             <View>
                 <Container width='100%' height='50%'>
@@ -33,7 +32,7 @@ export default class App {
     }
 
     static fetchData(store) {
-        return store.dispatch(load());
+        return store.dispatch(loadImages());
     }
 
 }

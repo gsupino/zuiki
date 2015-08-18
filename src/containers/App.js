@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router';
 import {loadImages} from '../actions/imageActions';
-//import {loadUsers} from '../actions/userActions';
+import {loadUsers} from '../actions/userActions';
 import View from '../components/View';
 import Container from '../components/Container';
 import Paper from '../components/Paper';
@@ -34,7 +34,10 @@ export default class App {
     }
 
     static fetchData(store) {
-        return store.dispatch(loadImages());
+        const promises=[];
+        promises.push(store.dispatch(loadImages()));
+        promises.push(store.dispatch(loadUsers()));
+        return Promise.all(promises)
     }
 
 }

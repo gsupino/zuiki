@@ -1,11 +1,13 @@
 /*global __CLIENT__*/
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import {Link} from 'react-router';
 import {loadImages} from '../actions/imageActions';
-import View from './View';
-import Container from './Container';
-import Paper from './Paper';
-import Block from './Block';
+//import {loadUsers} from '../actions/userActions';
+import View from '../components/View';
+import Container from '../components/Container';
+import Paper from '../components/Paper';
+import Block from '../components/Block';
 
 export default class App {
     render() {

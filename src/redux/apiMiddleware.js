@@ -20,20 +20,20 @@ function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
         return response
     } else {
-        var error = new Error(response.statusText)
-        error.response = response
+        var error = new Error(response.statusText);
+        error.response = response;
         throw error
     }
 }
 
-function callAPIMiddleware({ dispatch, getState }) {
+function callAPIMiddleware({ dispatch/*, getState*/ }) {
     return function (next) {
         return function (action) {
             const callAPI = action.CALL_API;
             if (typeof callAPI === 'undefined') {
                 return next(action);
             }
-            let { endpoint, types, params, payload } = callAPI;
+            let { endpoint, types, params={} } = callAPI;
 
             if (typeof endpoint !== 'string') {
                 throw new Error('Specify a string endpoint URL.');
@@ -45,19 +45,16 @@ function callAPIMiddleware({ dispatch, getState }) {
                 throw new Error('Expected action types to be strings.');
             }
 
-            let param=params ||{};
-
             const [requestType, successType, failureType] = types;
 
-            dispatch(Object.assign({}, payload, {
+            dispatch(Object.assign({}, {
                 type: requestType
             }));
-            return fetch(formatUrl(endpoint), param)
+            return fetch(formatUrl(endpoint), params)
                 .then(checkStatus)
-                .then(res => res.json())
-                .then((res) => next({res, type: successType}))
+                .then(response => response.json())
+                .then((response) => next({response, type: successType}))
                 .catch((error) => next({error, type: failureType}))
-
         };
     };
 }

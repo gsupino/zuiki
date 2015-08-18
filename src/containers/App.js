@@ -9,7 +9,7 @@ import Container from '../components/Container';
 import Paper from '../components/Paper';
 import Block from '../components/Block';
 
-export default class App {
+class App extends Component {
     render() {
         return (
             <View>
@@ -39,5 +39,7 @@ export default class App {
         promises.push(store.dispatch(loadUsers()));
         return Promise.all(promises)
     }
-
 }
+
+export default connect()(App);
+

@@ -25,6 +25,13 @@ const fonts='http://fonts.googleapis.com/css?family=Roboto:400,300,500';
 const css='public/dist/app.css';
 const js='public/dist/app.js';
 
+const getFetchData = (component={}) => {
+  return component.WrappedComponent ?
+    getFetchData(component.WrappedComponent) :
+    component.fetchData;
+};
+
+
 app.use((req, res) => {
     //verifico il tipo di device che effettua la richiesta
     const parser = new UAParser();
@@ -44,10 +51,9 @@ app.use((req, res) => {
             res.status(500).send(error);
         } else {
             Promise.all(initialState.components
-                .filter(component => component.fetchData)//prendo solo i componenti con un static methond fetchData
-                .map(component => {
-                    return component.fetchData(store);
-                }))
+                .filter((component) => getFetchData(component))//prendo solo i componenti con un static methond fetchData
+                .map(getFetchData)
+                .map(fetchData => fetchData(store)))
                 .then(() => {
                     let component=(
                         <Provider {...{ store }}>

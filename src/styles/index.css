@@ -2,12 +2,6 @@
 @import './reset.css';
 @import './theme.css';
 @import './base.css';
+@import './utility.css';
 
-body{
-    font-family: 'Roboto', sans-serif;
-}
 
-.App-item {
-    width: 300px;
-    padding: 30px;
-}

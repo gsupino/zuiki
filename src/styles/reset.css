@@ -185,9 +185,9 @@ blockquote {
 blockquote:before {
     position: absolute;
     left: -0.5em;
-    content: 'ì'; }
+    content: '‚Äú'; }
 blockquote:after {
-    content: 'î';
+    content: '‚Äù';
     margin-left: -0.05em; }
 
 mark {

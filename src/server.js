@@ -24,6 +24,7 @@ app.use('/public', Express.static(appRoot + '/static'));
 const fonts='http://fonts.googleapis.com/css?family=Roboto:400,300,500';
 const css='public/dist/app.css';
 const js='public/dist/app.js';
+const icons='https://fonts.googleapis.com/icon?family=Material+Icons';
 
 const getFetchData = (component={}) => {
   return component.WrappedComponent ?
@@ -62,7 +63,7 @@ app.use((req, res) => {
                     )
                     //render page
                     res.send('<!doctype html>\n' +
-                        React.renderToString(<Html fonts={fonts} css={css} js={js} component={component} store={store}/>));
+                        React.renderToString(<Html fonts={fonts} css={css} js={js} icons={icons} component={component} store={store}/>));
                 }).catch((err) => {
                     res.status(500).send(err.stack);
                 });

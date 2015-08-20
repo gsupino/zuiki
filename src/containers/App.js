@@ -8,6 +8,8 @@ import View from '../components/View';
 import Container from '../components/Container';
 import Paper from '../components/Paper';
 import Block from '../components/Block';
+import Icon from '../components/Icon';
+import {Toolbar} from '../components/toolbar';
 
 class App extends Component {
     render() {
@@ -15,7 +17,7 @@ class App extends Component {
             <View>
                 <Container width='100%' height='50%'>
                     <Paper zDepth={5} style={{backgroundColor:'white'}}>
-                        {this.props.children}
+                        <Toolbar zDepth={5}></Toolbar>
                     </Paper>
                 </Container>
 
@@ -24,6 +26,7 @@ class App extends Component {
                         <p className='vertical-align'>Home ciao</p>
                     </Block>
                     <Block flex='2 0 0px'>
+                        <Icon className="material-icons">face</Icon>
                         <p>Home </p>
                     </Block>
 

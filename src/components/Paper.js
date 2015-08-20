@@ -14,10 +14,11 @@ export default class Paper {
     static defaultProps={
         circle: false,
         rounded: true,
-        zDepth: 1
+        zDepth: 1,
+        style:{}
     }
 
-    getStyles() {
+    getStyles=()=> {
         let styles = {
             root: {
                 boxSizing: 'border-box',

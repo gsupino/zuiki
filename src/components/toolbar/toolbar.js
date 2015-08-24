@@ -18,7 +18,7 @@ export default class Toolbar extends Component {
 
     state = {hovered: false};
 
-    getStyles = ()=> {
+    getStyle (){
         return mergeAndPrefix({
             boxSizing: 'border-box',
             WebkitTapHighlightColor: 'rgba(0,0,0,0)',
@@ -32,7 +32,7 @@ export default class Toolbar extends Component {
     render() {
         return (
             <Paper zDepth={this.props.zDepth}>
-                <div style={this.getStyles()}>
+                <div style={this.getStyle()}>
                     {this.props.children}
                 </div>
             </Paper>

@@ -16,9 +16,11 @@ class App extends Component {
         return (
             <View>
                 <Container width='100%' height='50%'>
-                    <Paper zDepth={5} style={{backgroundColor:'white'}}>
-                        <Toolbar zDepth={5}></Toolbar>
-                    </Paper>
+                        <Block flex='1 0 0px' alignSelf='center' height='100%'>
+                                <Toolbar zDepth={5}></Toolbar>
+                        </Block>
+
+
                 </Container>
 
                 <Container width='100%' height='50%'>

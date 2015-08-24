@@ -14,16 +14,19 @@ export default class View {
         height: '100vh'
     }
 
-    render() {
-        let styles = {
+    getStyle() {
+        return mergeAndPrefix({
             height: this.props.height,
             width: this.props.width,
             position: 'relative',
             top: 0,
             left: 0
-        }
+        }, this.props.style);
+    }
+
+    render() {
         return (
-            <div style={mergeAndPrefix(styles, this.props.style)}>
+            <div style={this.getStyle()}>
                 {this.props.children}
             </div>
         );

@@ -11,30 +11,32 @@ export default class Container {
         justifyContent: React.PropTypes.string,//flex-start | flex-end | center | space-between | space-around
         alignItems: React.PropTypes.string,//flex-start | flex-end | center | baseline | stretch
         width: React.PropTypes.string,
-        height: React.PropTypes.string
+        height: React.PropTypes.string,
+        style: React.PropTypes.object,
+
     }
 
-    static defaultProps={
-        justifyContent: 'flex-start',
-        alignItems: 'stretch'
-    }
-
-    render() {
+    getStyle(){
         let props = this.props;
-
-        let styles={
+        return mergeAndPrefix({
             display: 'flex',
             flexDirection : props.column ? 'column' : 'row',
-            flexWrap: props.nowrap ? 'nowrap' : 'wrap',
-            justifyContent:props.justifyContent,
-            alignItems: props.alignItems,
+            flexWrap: props.wrap ? props.wrap : 'wrap',
+            justifyContent:props.justifyContent ? props.justifyContent : 'flex-start',
+            alignItems: props.alignItems ? props.alignItems : 'stretch',
             width : props.width,
             height : props.height,
             boxSizing: 'border-box',
-            backgroundColor:Styles.Colors.cyan300
-        };
+            backgroundColor:Styles.Colors.cyan300,
+            //margin:0,
+            //padding:0
+        },props.style);
+    }
+
+    render() {
+
         return (
-            <div style={mergeAndPrefix(styles, this.props.style)}>
+            <div style={this.getStyle()}>
                 {this.props.children}
             </div>
         );

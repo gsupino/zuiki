@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    Colors: require('./colors')
+    Colors: require('./colors'),
+    Paper:require('./paper')
 };

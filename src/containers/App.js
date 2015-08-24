@@ -6,7 +6,6 @@ import {loadImages} from '../actions/imageActions';
 import {loadUsers} from '../actions/userActions';
 import View from '../components/View';
 import Container from '../components/Container';
-import Paper from '../components/Paper';
 import Block from '../components/Block';
 import Icon from '../components/Icon';
 import {Toolbar} from '../components/toolbar';
@@ -16,18 +15,14 @@ class App extends Component {
         return (
             <View>
                 <Container width='100%' height='50%'>
-                        <Block flex='1 0 0px' alignSelf='center' height='100%'>
-                                <Toolbar zDepth={5}></Toolbar>
-                        </Block>
-
-
+                    <Toolbar zDepth={5}></Toolbar>
                 </Container>
 
-                <Container width='100%' height='50%'>
-                    <Block flex='1 0 0px' alignSelf='center' height='30%' >
+                <Container width='100%' height='50%' zDepth={5}>
+                    <Block flex='1 0 0px' alignSelf='center' height='30%' zDepth={5} >
                         <p className='vertical-align'>Home ciao</p>
                     </Block>
-                    <Block flex='2 0 0px'>
+                    <Block flex='2 0 0px' zDepth={5}>
                         <Icon className="material-icons">face</Icon>
                         <p>Home </p>
                     </Block>

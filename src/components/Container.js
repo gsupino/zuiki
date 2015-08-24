@@ -13,11 +13,16 @@ export default class Container {
         width: React.PropTypes.string,
         height: React.PropTypes.string,
         style: React.PropTypes.object,
+        zDepth:React.PropTypes.number
 
     }
 
     getStyle(){
         let props = this.props;
+        let shadow=0;
+        if (props.zDepth){
+            shadow=Styles.Paper.getZDepthShadows(props.zDepth);
+        }
         return mergeAndPrefix({
             display: 'flex',
             flexDirection : props.column ? 'column' : 'row',
@@ -28,8 +33,10 @@ export default class Container {
             height : props.height,
             boxSizing: 'border-box',
             backgroundColor:Styles.Colors.cyan300,
-            //margin:0,
-            //padding:0
+            position:'relative',
+            margin:0,
+            padding:0,
+            boxShadow:shadow
         },props.style);
     }
 

@@ -13,11 +13,16 @@ export default class Block {
         width: React.PropTypes.number,
         height: React.PropTypes.number,
         style: React.PropTypes.object,
+        zDepth:React.PropTypes.number
     }
 
     getStyle(){
         let {order,flex,basis,wrap,width,height} = this.props;
-        
+        let shadow=0;
+        if (this.props.zDepth){
+            shadow=Styles.Paper.getZDepthShadows(this.props.zDepth);
+        }
+
         //verifico se è presente un width ed lo fisso come prioritatio
         let styles={};
         if (width) {
@@ -34,8 +39,8 @@ export default class Block {
             backgroundColor:Styles.Colors.cyan500,
             margin:0,
             padding:0,
-            boxShadow: '0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2)',
-            //position:'relative'
+            position:'relative',
+            boxShadow:shadow
         },this.props.style,styles);
     }
 

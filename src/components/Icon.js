@@ -33,7 +33,8 @@ export default class Icon extends Component {
             position: 'relative',
             fontSize: spacing,
             display: 'inline-block',
-            userSelect: 'none'
+            userSelect: 'none',
+            padding:10
         }, style, {
             color: this.state.hovered ? onColor : offColor
         });
@@ -51,6 +52,7 @@ export default class Icon extends Component {
         let styles = this.getStyles();
         return (
             <span
+                className="material-icons"
                 {...other}
                 onMouseLeave={this._handleMouseLeave}
                 onMouseEnter={this._handleMouseEnter}

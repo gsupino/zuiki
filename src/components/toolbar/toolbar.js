@@ -1,43 +1,44 @@
 import React, { Component, PropTypes } from 'react';
 import Styles from '../../styles';
 const mergeAndPrefix = require('../../styles/autoprefix');
+import Container from '../Container';
 
 export default class Toolbar extends Component {
     static displayName = 'Toolbar'
 
     static propTypes = {
-        style: React.PropTypes.object,
-        zDepth: React.PropTypes.number
+        height:PropTypes.string,
+        style: PropTypes.object,
+        zDepth: PropTypes.number
     }
 
 
     static defaultProps = {
-        style: {}
+        style: {},
+        height:'100px'
     }
 
-    state = {hovered: false};
 
     getStyle() {
-        let shadow = 0;
-        if (this.props.zDepth) {
-            shadow = Styles.Paper.getZDepthShadows(this.props.zDepth);
-        }
         return mergeAndPrefix({
             boxSizing: 'border-box',
             WebkitTapHighlightColor: 'rgba(0,0,0,0)',
             backgroundColor: Styles.Colors.yellow400,
             height: 100,
             width: '100%',
-            boxShadow: shadow
+            position:'fixed',
+            top:0,
+            left:0
             //padding: this.props.noGutter ? 0 : '0px ' + this.context.muiTheme.spacing.desktopGutter + 'px',
         }, this.props.style);
     }
 
     render() {
+        let {height,zDepth}=this.props;
         return (
-            <div style={this.getStyle()}>
+            <Container alignItems='center' height={height} zDepth={zDepth} style={this.getStyle()}>
                 {this.props.children}
-            </div>
+            </Container>
         )
     }
 

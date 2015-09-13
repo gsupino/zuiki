@@ -1,9 +1,9 @@
 import React, {PropTypes}from 'react';
-import Styles from '../styles';
 const mergeAndPrefix = require('../styles/autoprefix');
+import classNames from 'classnames';
 
 export default class Container {
-    static displayName='Container'
+    static displayName = 'Container'
 
     static propTypes = {
         column: React.PropTypes.bool,//defaults to row layout
@@ -13,37 +13,33 @@ export default class Container {
         width: React.PropTypes.string,
         height: React.PropTypes.string,
         style: React.PropTypes.object,
-        zDepth:React.PropTypes.number
+        zDepth: React.PropTypes.number
 
     }
 
-    getStyle(){
+    getStyle() {
         let props = this.props;
-        let shadow=0;
-        if (props.zDepth){
-            shadow=Styles.Paper.getZDepthShadows(props.zDepth);
-        }
         return mergeAndPrefix({
             display: 'flex',
-            flexDirection : props.column ? 'column' : 'row',
+            flexDirection: props.column ? 'column' : 'row',
             flexWrap: props.wrap ? props.wrap : 'wrap',
-            justifyContent:props.justifyContent ? props.justifyContent : 'flex-start',
+            justifyContent: props.justifyContent ? props.justifyContent : 'flex-start',
             alignItems: props.alignItems ? props.alignItems : 'stretch',
-            width : props.width,
-            height : props.height,
+            width: props.width,
+            height: props.height,
             boxSizing: 'border-box',
-            backgroundColor:Styles.Colors.cyan300,
-            position:'relative',
-            margin:0,
-            padding:0,
-            boxShadow:shadow
-        },props.style);
+            position: 'relative',
+            margin: 0,
+            padding: 0,
+        }, props.style);
     }
 
     render() {
-
+        let classes = classNames({
+            [`shadow--${this.props.zDepth}dp`]: this.props.zDepth
+        });
         return (
-            <div style={this.getStyle()}>
+            <div className={classes} style={this.getStyle()}>
                 {this.props.children}
             </div>
         );

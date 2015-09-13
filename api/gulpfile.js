@@ -8,7 +8,7 @@ gulp.task('nodemon', function (done) {
     nodemon({
         script: './server.js',
         "execMap": {
-            "js": "iojs"
+            "js": "/usr/local/bin/iojs"
         },
         env: {'NODE_ENV': 'development', 'DEBUG': 'MB:*'}
     })

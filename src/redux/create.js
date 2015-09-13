@@ -1,8 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import * as reducers from '../reducers';
-import loggerMiddleware from './loggerMiddleware';
+import loggerMiddleware from 'redux-logger';
 import fetchMiddleware from './fetchMiddleware';
-import thunMiddleware from './thunkMiddleware';
+import thunMiddleware from 'redux-thunk';
 import callAPIMiddleware from './apiMiddleware';
 
 const reducer = combineReducers(reducers);

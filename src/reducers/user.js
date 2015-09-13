@@ -1,8 +1,9 @@
 import {
-    IMAGE_REQUEST ,
-    IMAGE_SUCCESS,
-    IMAGE_FAILURE
+    USER_REQUEST ,
+    USER_SUCCESS,
+    USER_FAILURE
     } from '../actions/actionTypes';
+
 
 
 const initialState = {
@@ -11,19 +12,19 @@ const initialState = {
 
 export default function image(state = initialState, action = {}) {
     switch (action.type) {
-        case IMAGE_REQUEST:
+        case USER_REQUEST:
             return {
                 ...state,
                 loading: true
             };
-        case IMAGE_SUCCESS:
+        case USER_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 loaded: true,
                 data: action.response
             };
-        case IMAGE_FAILURE:
+        case USER_FAILURE:
             return {
                 ...state,
                 loading: false,

@@ -13,11 +13,11 @@ var commonLoaders = [
 module.exports=[
     {
         name: 'browser',
-        devtool: 'eval',
+        //devtool: 'eval',
         entry: {
             'main': [
-                './src/client.js',
-                './src/styles/index.css'
+                './src/styles/index.css',
+                './src/client.js'
             ]
         },
         output: {
@@ -38,6 +38,7 @@ module.exports=[
              loaders: ['eslint', 'jscs']
              }],
              */
+
             loaders: commonLoaders.concat([
                 {
                     test: /\.jsx?$/,
@@ -67,8 +68,18 @@ module.exports=[
                 __CLIENT__: true,
                 __SERVER__: false,
                 __DEVELOPMENT__: true,
-                __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
-            })
+                __DEVTOOLS__: false  // <-------- DISABLE redux-devtools HERE
+            }),
+/*
+            // optimizations
+                new webpack.optimize.DedupePlugin(),
+                new webpack.optimize.OccurenceOrderPlugin(),
+                new webpack.optimize.UglifyJsPlugin({
+                  compress: {
+                      warnings: false
+                    }
+                }),
+*/
         ]
     }
 

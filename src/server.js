@@ -24,6 +24,14 @@ app.use('/public', Express.static(appRoot + '/static'));
 const fonts='http://fonts.googleapis.com/css?family=Roboto:400,300,500';
 const css='public/dist/app.css';
 const js='public/dist/app.js';
+const icons='https://fonts.googleapis.com/icon?family=Material+Icons';
+
+const getFetchData = (component={}) => {
+  return component.WrappedComponent ?
+    getFetchData(component.WrappedComponent) :
+    component.fetchData;
+};
+
 
 app.use((req, res) => {
     //verifico il tipo di device che effettua la richiesta
@@ -44,10 +52,9 @@ app.use((req, res) => {
             res.status(500).send(error);
         } else {
             Promise.all(initialState.components
-                .filter(component => component.fetchData)//prendo solo i componenti con un static methond fetchData
-                .map(component => {
-                    return component.fetchData(store);
-                }))
+                .filter((component) => getFetchData(component))//prendo solo i componenti con un static methond fetchData
+                .map(getFetchData)
+                .map(fetchData => fetchData(store)))
                 .then(() => {
                     let component=(
                         <Provider {...{ store }}>
@@ -56,7 +63,7 @@ app.use((req, res) => {
                     )
                     //render page
                     res.send('<!doctype html>\n' +
-                        React.renderToString(<Html fonts={fonts} css={css} js={js} component={component} store={store}/>));
+                        React.renderToString(<Html fonts={fonts} css={css} js={js} icons={icons} component={component} store={store}/>));
                 }).catch((err) => {
                     res.status(500).send(err.stack);
                 });

@@ -1,2 +1,2 @@
-export info from './info';
 export image from './image';
+export user from './user'

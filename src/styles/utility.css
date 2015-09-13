@@ -1,12 +1,3 @@
-/** @define App */
-@import './theme.css';
-@import './base.css';
-
-
-.App-item {
-    width: 300px;
-    padding: 30px;
-}
 
 .vertical-align {
     position: relative;
@@ -15,3 +6,4 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+

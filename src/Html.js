@@ -15,12 +15,13 @@ export default class Html extends Component {
         fonts: PropTypes.string,
         css: PropTypes.string,
         js: PropTypes.string,
+        icons:PropTypes.string,
         component: PropTypes.object,
         store: PropTypes.object
     }
 
     render() {
-        const {fonts,css,js, component, store} = this.props;
+        const {fonts,css,js, icons,component, store} = this.props;
         const title = 'Zuiki bakery';
         const description = 'All the modern best practices in one example.';
         const image = 'https://react-redux.herokuapp.com/logo.jpg';
@@ -46,6 +47,7 @@ export default class Html extends Component {
 
                 <link rel="shortcut icon" href="/favicon.ico" />
                 <link href={fonts} media="screen, projection" rel="stylesheet" type="text/css" />
+                <link href={icons} media="screen, projection" rel="stylesheet" type="text/css" />
                 <link href={css} media="screen, projection" rel="stylesheet" type="text/css"/>
             </head>
             <body>

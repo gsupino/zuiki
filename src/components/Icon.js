@@ -56,6 +56,7 @@ export default class Icon extends Component {
                 {...other}
                 onMouseLeave={this._handleMouseLeave}
                 onMouseEnter={this._handleMouseEnter}
+                onClick={this._handleMouseEnter}
                 style={styles}/>
         );
     }
@@ -67,6 +68,7 @@ export default class Icon extends Component {
     }
 
     _handleMouseEnter = ()=> {
+        console.log('mouse enter')
         // hover is needed only when a hoverColor is defined
         if (this.props.hoverColor !== undefined)
             this.setState({hovered: true});

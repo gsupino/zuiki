@@ -1,1 +1,0 @@
-export FlatButton fromCodePoint './button-flat';

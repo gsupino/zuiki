@@ -46,6 +46,8 @@ export default class Html extends Component {
                 <meta property="twitter:description" content={description}/>
 
                 <link rel="shortcut icon" href="/favicon.ico" />
+                <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css" />
+
                 <link href={fonts} media="screen, projection" rel="stylesheet" type="text/css" />
                 <link href={icons} media="screen, projection" rel="stylesheet" type="text/css" />
                 <link href={css} media="screen, projection" rel="stylesheet" type="text/css"/>
@@ -53,6 +55,7 @@ export default class Html extends Component {
             <body>
             <div id="content" dangerouslySetInnerHTML={{__html: React.renderToString(component)}}/>
             <script dangerouslySetInnerHTML={{__html: `window.__data=${serialize(store.getState())};`}} />
+            <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
             <script src={js}/>
             </body>
             </html>

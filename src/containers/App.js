@@ -15,7 +15,7 @@ import Badge from '../components/badge';
 import Avatar from '../components/avatar';
 import Button from '../components/button';
 import Tooltip from '../components/tooltip';
-import {Card,CardTitle} from '../components/card';
+import {Card,CardTitle, CardMedia,CardSupportingText,CardSubTitle, CardMenu,CardActions} from '../components/card';
 
 class App extends Component {
 
@@ -42,14 +42,35 @@ class App extends Component {
                     <Container key={3} width='100%' height='100%' style={{paddingTop:'100px',zIndex:1}}>
                         <Block key={4} flex='1 0 0px' alignSelf='center' height='100%'>
                             <a >Home ciao</a>
-                            <Badge notification="5" isIcon="true">account_box</Badge>
+                            <Badge text="5" isIcon="true">account_box</Badge>
                             <Avatar src="/public/image/user.jpg"/>
                             <Icon key={22}>loop</Icon>
-                            <Button>test</Button>
+                            <Button onClick={e=>{console.log('yes')}}>test</Button>
                             <p id="tt1">HTML</p>
                             <Tooltip htmlFor="tt1">HyperText Markup Language</Tooltip>
                             <Card zDepth={2}>
-                                <CardTitle headType="h3"> questa è una prova test</CardTitle>
+                                <CardTitle headType="h3" border='true'> questa è una prova test</CardTitle>
+                                <CardSubTitle>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Mauris sagittis pellentesque lacus eleifend lacinia...
+                                </CardSubTitle>
+                                <CardMedia>
+                                    <img src='/public/image/brand/logo.gif' alt=""/>
+                                </CardMedia>
+                                <CardSupportingText>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Mauris sagittis pellentesque lacus eleifend lacinia...
+                                </CardSupportingText>
+                                <CardActions border='true'>
+                                    <Button colored='true' ripple='true'>
+                                        get
+                                    </Button>
+                                </CardActions>
+                                <CardMenu>
+                                    <Button icon='true'>
+                                        <i className="material-icons">share</i>
+                                    </Button>
+                                </CardMenu>
                             </Card>
                         </Block>
                         <Block flex='2 0 0px'>

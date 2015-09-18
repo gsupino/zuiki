@@ -83,13 +83,13 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reduxCreate = __webpack_require__(420);
+	var _reduxCreate = __webpack_require__(424);
 
 	var _reduxCreate2 = _interopRequireDefault(_reduxCreate);
 
 	var _reactRedux = __webpack_require__(377);
 
-	__webpack_require__(433);
+	__webpack_require__(437);
 
 	var history = new _reactRouterLibBrowserHistory2['default']();
 	var dest = document.getElementById('content');
@@ -28354,11 +28354,11 @@
 
 	var _containersApp2 = _interopRequireDefault(_containersApp);
 
-	var _componentsHome = __webpack_require__(418);
+	var _componentsHome = __webpack_require__(422);
 
 	var _componentsHome2 = _interopRequireDefault(_componentsHome);
 
-	var _componentsTest = __webpack_require__(419);
+	var _componentsTest = __webpack_require__(423);
 
 	var _componentsTest2 = _interopRequireDefault(_componentsTest);
 
@@ -28441,11 +28441,11 @@
 
 	var _componentsButton2 = _interopRequireDefault(_componentsButton);
 
-	var _componentsTooltip = __webpack_require__(435);
+	var _componentsTooltip = __webpack_require__(418);
 
 	var _componentsTooltip2 = _interopRequireDefault(_componentsTooltip);
 
-	var _componentsCard = __webpack_require__(436);
+	var _componentsCard = __webpack_require__(419);
 
 	var App = (function (_Component) {
 	    _inherits(App, _Component);
@@ -28507,7 +28507,7 @@
 	                            ),
 	                            _react2['default'].createElement(
 	                                _componentsBadge2['default'],
-	                                { notification: '5', isIcon: 'true' },
+	                                { text: '5', isIcon: 'true' },
 	                                'account_box'
 	                            ),
 	                            _react2['default'].createElement(_componentsAvatar2['default'], { src: '/public/image/user.jpg' }),
@@ -28518,7 +28518,9 @@
 	                            ),
 	                            _react2['default'].createElement(
 	                                _componentsButton2['default'],
-	                                null,
+	                                { onClick: function (e) {
+	                                        console.log('yes');
+	                                    } },
 	                                'test'
 	                            ),
 	                            _react2['default'].createElement(
@@ -28536,8 +28538,45 @@
 	                                { zDepth: 2 },
 	                                _react2['default'].createElement(
 	                                    _componentsCard.CardTitle,
-	                                    { headType: 'h3' },
+	                                    { headType: 'h3', border: 'true' },
 	                                    ' questa è una prova test'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsCard.CardSubTitle,
+	                                    null,
+	                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsCard.CardMedia,
+	                                    null,
+	                                    _react2['default'].createElement('img', { src: '/public/image/brand/logo.gif', alt: '' })
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsCard.CardSupportingText,
+	                                    null,
+	                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsCard.CardActions,
+	                                    { border: 'true' },
+	                                    _react2['default'].createElement(
+	                                        _componentsButton2['default'],
+	                                        { colored: 'true', ripple: 'true' },
+	                                        'get'
+	                                    )
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsCard.CardMenu,
+	                                    null,
+	                                    _react2['default'].createElement(
+	                                        _componentsButton2['default'],
+	                                        { icon: 'true' },
+	                                        _react2['default'].createElement(
+	                                            'i',
+	                                            { className: 'material-icons' },
+	                                            'share'
+	                                        )
+	                                    )
 	                                )
 	                            )
 	                        ),
@@ -30699,7 +30738,6 @@
 	        };
 
 	        this._handleMouseEnter = function () {
-	            console.log('mouse enter');
 	            // hover is needed only when a hoverColor is defined
 	            if (_this.props.hoverColor !== undefined) _this.setState({ hovered: true });
 	        };
@@ -30713,20 +30751,18 @@
 	            var hoverColor = _props.hoverColor;
 	            var style = _props.style;
 
-	            var spacing = 24;
 	            var offColor = color ? color : style && style.color ? style.color : _styles2['default'].Colors.darkBlack;
 	            var onColor = hoverColor ? hoverColor : offColor;
 
 	            var mergedStyles = mergeAndPrefix({
 	                position: 'relative',
-	                fontSize: spacing,
+	                fontSize: 24,
 	                display: 'inline-block',
 	                userSelect: 'none',
 	                padding: 10
 	            }, style, {
 	                color: this.state.hovered ? onColor : offColor
 	            });
-
 	            return mergedStyles;
 	        }
 	    }, {
@@ -30755,6 +30791,7 @@
 	    }, {
 	        key: 'propTypes',
 	        value: {
+	            style: _react2['default'].PropTypes.object,
 	            color: _react2['default'].PropTypes.string,
 	            hoverColor: _react2['default'].PropTypes.string
 	        },
@@ -30895,7 +30932,6 @@
 	    }, {
 	        key: 'defaultProps',
 	        value: {
-	            style: {},
 	            height: '100px'
 	        },
 	        enumerable: true
@@ -31288,7 +31324,6 @@
 	            } else {
 	                imgComponent = _react2['default'].createElement('div', { style: this.getStyle() });
 	            }
-
 	            return imgComponent;
 	        }
 	    }], [{
@@ -31301,7 +31336,8 @@
 	            src: _react2['default'].PropTypes.string,
 	            width: _react2['default'].PropTypes.string,
 	            height: _react2['default'].PropTypes.string,
-	            sizing: _react2['default'].PropTypes.string
+	            sizing: _react2['default'].PropTypes.string,
+	            style: _react2['default'].PropTypes.object
 	        },
 	        enumerable: true
 	    }, {
@@ -31465,7 +31501,6 @@
 	    _createClass(Badge, [{
 	        key: 'getStyle',
 	        value: function getStyle() {
-
 	            return mergeAndPrefix({}, this.props.style, {});
 	        }
 	    }, {
@@ -31478,7 +31513,7 @@
 
 	            return _react2['default'].createElement(
 	                'span',
-	                { className: classes, 'data-badge': this.props.notification, style: this.getStyle() },
+	                { className: classes, 'data-badge': this.props.text, style: this.getStyle() },
 	                this.props.children
 	            );
 	        }
@@ -31490,7 +31525,7 @@
 	        key: 'propTypes',
 	        value: {
 	            style: _react2['default'].PropTypes.object,
-	            notification: _react2['default'].any,
+	            text: _react2['default'].any,
 	            isIcon: _react.PropTypes.bool
 	        },
 	        enumerable: true
@@ -31627,9 +31662,19 @@
 	    _inherits(Button, _React$Component);
 
 	    function Button() {
+	        var _this = this;
+
 	        _classCallCheck(this, Button);
 
 	        _get(Object.getPrototypeOf(Button.prototype), 'constructor', this).apply(this, arguments);
+
+	        this.handlerClick = function (e) {
+	            console.log(e.type);
+	            e.preventDefault();
+	            if (_this.props.onClick) {
+	                _this.props.onClick();
+	            }
+	        };
 	    }
 
 	    _createClass(Button, [{
@@ -31639,7 +31684,6 @@
 
 	            var node = React.findDOMNode(this);
 	            window.componentHandler.upgradeElement(node, 'MaterialButton');
-
 	            if (ripple) {
 	                window.componentHandler.upgradeElement(node, 'MaterialRipple');
 	            }
@@ -31656,7 +31700,7 @@
 	            var _props = this.props;
 	            var children = _props.children;
 	            var className = _props.className;
-	            var floating = _props.floating;
+	            var fab = _props.fab;
 	            var colored = _props.colored;
 	            var ripple = _props.ripple;
 	            var raised = _props.raised;
@@ -31666,43 +31710,302 @@
 	            var mini = _props.mini;
 
 	            var classes = classnames(baseClasses, {
-	                'mdl-button--fab': floating,
+	                'mdl-button--fab': fab,
 	                'mdl-button--colored': colored,
 	                'mdl-js-ripple-effect': ripple,
 	                'mdl-button--raised': raised,
 	                'mdl-button--primary': primary,
 	                'mdl-button--accent': accent,
 	                'mdl-button--icon': icon,
-	                'mdl-button--mini-fab': floating && mini
+	                'mdl-button--mini-fab': fab && mini
+	            }, className);
+	            return React.createElement(
+	                'button',
+	                _extends({}, this.props, { className: classes, onClick: this.handlerClick.bind(this) }),
+	                children
+	            );
+	        }
+	    }], [{
+	        key: 'propTypes',
+	        value: {
+	            className: React.PropTypes.string,
+	            raised: React.PropTypes.bool,
+	            fab: React.PropTypes.bool,
+	            colored: React.PropTypes.bool,
+	            ripple: React.PropTypes.bool,
+	            primary: React.PropTypes.bool,
+	            accent: React.PropTypes.bool,
+	            icon: React.PropTypes.bool,
+	            mini: React.PropTypes.bool,
+	            onClick: React.PropTypes.func
+	        },
+	        enumerable: true
+	    }]);
+
+	    return Button;
+	})(React.Component);
+
+	module.exports = Button;
+
+/***/ },
+/* 418 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(190);
+	var classnames = __webpack_require__(402);
+
+	var baseClasses = {
+	    'mdl-tooltip': true
+	};
+
+	var Tooltip = (function (_React$Component) {
+	    _inherits(Tooltip, _React$Component);
+
+	    function Tooltip() {
+	        _classCallCheck(this, Tooltip);
+
+	        _get(Object.getPrototypeOf(Tooltip.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(Tooltip, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var node = React.findDOMNode(this);
+	            window.componentHandler.upgradeElement(node, 'MaterialTooltip');
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            var node = React.findDOMNode(this);
+	            window.componentHandler.downgradeElements(node);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var children = _props.children;
+	            var className = _props.className;
+	            var large = _props.large;
+
+	            var classes = classnames(baseClasses, {
+	                'mdl-tooltip--large': large
 	            }, className);
 
 	            return React.createElement(
-	                'button',
+	                'span',
+	                _extends({}, this.props, { className: classes }),
+	                children
+	            );
+	        }
+	    }], [{
+	        key: 'propTypes',
+	        value: {
+	            className: React.PropTypes.string,
+	            htmlFor: React.PropTypes.string.isRequired,
+	            large: React.PropTypes.bool
+	        },
+	        enumerable: true
+	    }]);
+
+	    return Tooltip;
+	})(React.Component);
+
+	module.exports = Tooltip;
+
+/***/ },
+/* 419 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _card = __webpack_require__(420);
+
+	var _card2 = _interopRequireDefault(_card);
+
+	exports.Card = _card2['default'];
+
+	var _cardTitle = __webpack_require__(421);
+
+	var _cardTitle2 = _interopRequireDefault(_cardTitle);
+
+	exports.CardTitle = _cardTitle2['default'];
+
+	var _cardMedia = __webpack_require__(439);
+
+	var _cardMedia2 = _interopRequireDefault(_cardMedia);
+
+	exports.CardMedia = _cardMedia2['default'];
+
+	var _cardSupportingText = __webpack_require__(440);
+
+	var _cardSupportingText2 = _interopRequireDefault(_cardSupportingText);
+
+	exports.CardSupportingText = _cardSupportingText2['default'];
+
+	var _cardSubtitle = __webpack_require__(441);
+
+	var _cardSubtitle2 = _interopRequireDefault(_cardSubtitle);
+
+	exports.CardSubTitle = _cardSubtitle2['default'];
+
+	var _cardMenu = __webpack_require__(442);
+
+	var _cardMenu2 = _interopRequireDefault(_cardMenu);
+
+	exports.CardMenu = _cardMenu2['default'];
+
+	var _cardActions = __webpack_require__(443);
+
+	var _cardActions2 = _interopRequireDefault(_cardActions);
+
+	exports.CardActions = _cardActions2['default'];
+
+/***/ },
+/* 420 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(190);
+	var classnames = __webpack_require__(402);
+
+	var baseClasses = {
+	    'mdl-card': true
+	};
+
+	var Card = (function (_React$Component) {
+	    _inherits(Card, _React$Component);
+
+	    function Card() {
+	        _classCallCheck(this, Card);
+
+	        _get(Object.getPrototypeOf(Card.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(Card, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var children = _props.children;
+	            var className = _props.className;
+	            var zDepth = _props.zDepth;
+
+	            var classes = classnames(baseClasses, _defineProperty({}, 'mdl-shadow--' + this.props.zDepth + 'dp', this.props.zDepth), className);
+
+	            return React.createElement(
+	                'div',
 	                _extends({}, this.props, { className: classes }),
 	                children
 	            );
 	        }
 	    }]);
 
-	    return Button;
+	    return Card;
 	})(React.Component);
 
-	Button.propTypes = {
+	Card.propTypes = {
 	    className: React.PropTypes.string,
-	    floating: React.PropTypes.bool,
-	    colored: React.PropTypes.bool,
-	    ripple: React.PropTypes.bool,
-	    raised: React.PropTypes.bool,
-	    primary: React.PropTypes.bool,
-	    accent: React.PropTypes.bool,
-	    icon: React.PropTypes.bool,
-	    mini: React.PropTypes.bool
+	    zDepth: React.PropTypes.number
 	};
 
-	module.exports = Button;
+	module.exports = Card;
 
 /***/ },
-/* 418 */
+/* 421 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(190);
+	var classnames = __webpack_require__(402);
+
+	var baseClasses = {
+	    'mdl-card__title': true,
+	    'mdl-card__text': true
+	};
+
+	var CardTitle = (function (_React$Component) {
+	    _inherits(CardTitle, _React$Component);
+
+	    function CardTitle() {
+	        _classCallCheck(this, CardTitle);
+
+	        _get(Object.getPrototypeOf(CardTitle.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(CardTitle, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var children = _props.children;
+	            var headType = _props.headType;
+	            var border = _props.border;
+	            var className = _props.className;
+
+	            var classes = classnames('mdl-card__title', {
+	                'mdl-card--border': border
+	            }, className);
+
+	            var newChildren = React.DOM['' + headType]({ className: 'mdl-card__title-text' }, children);
+	            return React.createElement(
+	                'div',
+	                { className: classes },
+	                newChildren
+	            );
+	        }
+	    }]);
+
+	    return CardTitle;
+	})(React.Component);
+
+	CardTitle.propTypes = {
+	    className: React.PropTypes.string,
+	    headType: React.PropTypes.string,
+	    border: React.PropTypes.bool
+	};
+
+	module.exports = CardTitle;
+
+/***/ },
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31749,7 +32052,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 419 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31816,7 +32119,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 420 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31831,19 +32134,19 @@
 
 	var _redux = __webpack_require__(385);
 
-	var _reducers = __webpack_require__(421);
+	var _reducers = __webpack_require__(425);
 
 	var reducers = _interopRequireWildcard(_reducers);
 
-	var _reduxThunk = __webpack_require__(424);
+	var _reduxThunk = __webpack_require__(428);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _apiMiddleware = __webpack_require__(425);
+	var _apiMiddleware = __webpack_require__(429);
 
 	var _apiMiddleware2 = _interopRequireDefault(_apiMiddleware);
 
-	var _loggerMiddleware = __webpack_require__(432);
+	var _loggerMiddleware = __webpack_require__(436);
 
 	var _loggerMiddleware2 = _interopRequireDefault(_loggerMiddleware);
 
@@ -31869,7 +32172,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 421 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31880,20 +32183,20 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _image2 = __webpack_require__(422);
+	var _image2 = __webpack_require__(426);
 
 	var _image3 = _interopRequireDefault(_image2);
 
 	exports.image = _image3['default'];
 
-	var _user2 = __webpack_require__(423);
+	var _user2 = __webpack_require__(427);
 
 	var _user3 = _interopRequireDefault(_user2);
 
 	exports.user = _user3['default'];
 
 /***/ },
-/* 422 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31941,7 +32244,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 423 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31989,7 +32292,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 424 */
+/* 428 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -32011,7 +32314,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 425 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32024,7 +32327,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _url = __webpack_require__(426);
+	var _url = __webpack_require__(430);
 
 	var _url2 = _interopRequireDefault(_url);
 
@@ -32102,7 +32405,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 426 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -32126,7 +32429,7 @@
 	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-	var punycode = __webpack_require__(427);
+	var punycode = __webpack_require__(431);
 
 	exports.parse = urlParse;
 	exports.resolve = urlResolve;
@@ -32198,7 +32501,7 @@
 	      'gopher:': true,
 	      'file:': true
 	    },
-	    querystring = __webpack_require__(429);
+	    querystring = __webpack_require__(433);
 
 	function urlParse(url, parseQueryString, slashesDenoteHost) {
 	  if (url && isObject(url) && url instanceof Url) return url;
@@ -32815,7 +33118,7 @@
 
 
 /***/ },
-/* 427 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! https://mths.be/punycode v1.3.2 by @mathias */
@@ -33347,10 +33650,10 @@
 
 	}(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(428)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(432)(module), (function() { return this; }())))
 
 /***/ },
-/* 428 */
+/* 432 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -33366,17 +33669,17 @@
 
 
 /***/ },
-/* 429 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	exports.decode = exports.parse = __webpack_require__(430);
-	exports.encode = exports.stringify = __webpack_require__(431);
+	exports.decode = exports.parse = __webpack_require__(434);
+	exports.encode = exports.stringify = __webpack_require__(435);
 
 
 /***/ },
-/* 430 */
+/* 434 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -33462,7 +33765,7 @@
 
 
 /***/ },
-/* 431 */
+/* 435 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -33532,7 +33835,7 @@
 
 
 /***/ },
-/* 432 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33588,19 +33891,19 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 433 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(434);
+	__webpack_require__(438);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 434 */
+/* 438 */
 /***/ function(module, exports) {
 
 	(function() {
@@ -33941,170 +34244,7 @@
 
 
 /***/ },
-/* 435 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(190);
-	var classnames = __webpack_require__(402);
-
-	var baseClasses = {
-	    'mdl-tooltip': true
-	};
-
-	var Tooltip = (function (_React$Component) {
-	    _inherits(Tooltip, _React$Component);
-
-	    function Tooltip() {
-	        _classCallCheck(this, Tooltip);
-
-	        _get(Object.getPrototypeOf(Tooltip.prototype), 'constructor', this).apply(this, arguments);
-	    }
-
-	    _createClass(Tooltip, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            var node = React.findDOMNode(this);
-	            window.componentHandler.upgradeElement(node, 'MaterialTooltip');
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            var node = React.findDOMNode(this);
-	            window.componentHandler.downgradeElements(node);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props;
-	            var children = _props.children;
-	            var className = _props.className;
-	            var large = _props.large;
-
-	            var classes = classnames(baseClasses, {
-	                'mdl-tooltip--large': large
-	            }, className);
-
-	            return React.createElement(
-	                'span',
-	                _extends({}, this.props, { className: classes }),
-	                children
-	            );
-	        }
-	    }], [{
-	        key: 'propTypes',
-	        value: {
-	            className: React.PropTypes.string,
-	            htmlFor: React.PropTypes.string.isRequired,
-	            large: React.PropTypes.bool
-	        },
-	        enumerable: true
-	    }]);
-
-	    return Tooltip;
-	})(React.Component);
-
-	module.exports = Tooltip;
-
-/***/ },
-/* 436 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _card = __webpack_require__(437);
-
-	var _card2 = _interopRequireDefault(_card);
-
-	exports.Card = _card2['default'];
-
-	var _cardTitle = __webpack_require__(438);
-
-	var _cardTitle2 = _interopRequireDefault(_cardTitle);
-
-	exports.CardTitle = _cardTitle2['default'];
-
-/***/ },
-/* 437 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(190);
-	var classnames = __webpack_require__(402);
-
-	var baseClasses = {
-	    'mdl-card': true
-	};
-
-	var Card = (function (_React$Component) {
-	    _inherits(Card, _React$Component);
-
-	    function Card() {
-	        _classCallCheck(this, Card);
-
-	        _get(Object.getPrototypeOf(Card.prototype), 'constructor', this).apply(this, arguments);
-	    }
-
-	    _createClass(Card, [{
-	        key: 'render',
-	        value: function render() {
-	            var _props = this.props;
-	            var children = _props.children;
-	            var className = _props.className;
-	            var zDepth = _props.zDepth;
-
-	            var classes = classnames(baseClasses, _defineProperty({}, 'mdl-shadow--' + this.props.zDepth + 'dp', this.props.zDepth), className);
-
-	            return React.createElement(
-	                'div',
-	                _extends({}, this.props, { className: classes }),
-	                children
-	            );
-	        }
-	    }]);
-
-	    return Card;
-	})(React.Component);
-
-	Card.propTypes = {
-	    className: React.PropTypes.string,
-	    zDepth: React.PropTypes.number
-	};
-
-	module.exports = Card;
-
-/***/ },
-/* 438 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34121,51 +34261,288 @@
 	var classnames = __webpack_require__(402);
 
 	var baseClasses = {
-	    'mdl-card__title': true,
-	    'mdl-card__text': true
+	    'mdl-card__media': true
 	};
 
-	var CardTitle = (function (_React$Component) {
-	    _inherits(CardTitle, _React$Component);
+	var CardMedia = (function (_React$Component) {
+	    _inherits(CardMedia, _React$Component);
 
-	    function CardTitle() {
-	        _classCallCheck(this, CardTitle);
+	    function CardMedia() {
+	        _classCallCheck(this, CardMedia);
 
-	        _get(Object.getPrototypeOf(CardTitle.prototype), 'constructor', this).apply(this, arguments);
+	        _get(Object.getPrototypeOf(CardMedia.prototype), 'constructor', this).apply(this, arguments);
 	    }
 
-	    _createClass(CardTitle, [{
+	    _createClass(CardMedia, [{
 	        key: 'render',
 	        value: function render() {
 	            var _props = this.props;
 	            var children = _props.children;
-	            var headType = _props.headType;
-	            var border = _props.border;
+	            var width = _props.width;
 	            var className = _props.className;
 
-	            var classes = classnames('mdl-card__title', {
-	                'mdl-card--border': border
-	            }, className);
+	            var classes = classnames('mdl-card__media', {}, className);
 
-	            var newChildren = React.DOM['' + headType]({ className: 'mdl-card__title-text' }, children);
+	            var newChildren = React.Children.map(this.props.children, function (currentChildren) {
+	                if (!currentChildren) {
+	                    return null;
+	                }
+	                return React.cloneElement(currentChildren, { style: { width: width } });
+	            }, this);
+
 	            return React.createElement(
 	                'div',
 	                { className: classes },
 	                newChildren
 	            );
 	        }
+	    }], [{
+	        key: 'propTypes',
+	        value: {
+	            className: React.PropTypes.string,
+	            width: React.PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            width: '100%'
+	        },
+	        enumerable: true
 	    }]);
 
-	    return CardTitle;
+	    return CardMedia;
 	})(React.Component);
 
-	CardTitle.propTypes = {
+	module.exports = CardMedia;
+
+/***/ },
+/* 440 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(190);
+	var classnames = __webpack_require__(402);
+
+	var baseClasses = {
+	    'mdl-card__supporting-text': true
+	};
+
+	var CardSupportingText = (function (_React$Component) {
+	    _inherits(CardSupportingText, _React$Component);
+
+	    function CardSupportingText() {
+	        _classCallCheck(this, CardSupportingText);
+
+	        _get(Object.getPrototypeOf(CardSupportingText.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(CardSupportingText, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var children = _props.children;
+	            var className = _props.className;
+
+	            var classes = classnames('mdl-card__supporting-text', {}, className);
+
+	            return React.createElement(
+	                'div',
+	                { className: classes },
+	                children
+	            );
+	        }
+	    }]);
+
+	    return CardSupportingText;
+	})(React.Component);
+
+	CardSupportingText.propTypes = {
+	    className: React.PropTypes.string
+	};
+
+	module.exports = CardSupportingText;
+
+/***/ },
+/* 441 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(190);
+	var classnames = __webpack_require__(402);
+
+	var baseClasses = {
+	    'mdl-card__subtitle-text': true
+	};
+
+	var CardSubTitle = (function (_React$Component) {
+	    _inherits(CardSubTitle, _React$Component);
+
+	    function CardSubTitle() {
+	        _classCallCheck(this, CardSubTitle);
+
+	        _get(Object.getPrototypeOf(CardSubTitle.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(CardSubTitle, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var children = _props.children;
+	            var className = _props.className;
+
+	            var classes = classnames('mdl-card__subtitle-text', {}, className);
+
+	            return React.createElement(
+	                'div',
+	                { className: classes },
+	                children
+	            );
+	        }
+	    }]);
+
+	    return CardSubTitle;
+	})(React.Component);
+
+	CardSubTitle.propTypes = {
+	    className: React.PropTypes.string
+	};
+
+	module.exports = CardSubTitle;
+
+/***/ },
+/* 442 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(190);
+	var classnames = __webpack_require__(402);
+
+	var baseClasses = {
+	    'mdl-card__menu': true
+	};
+
+	var CarSubTitle = (function (_React$Component) {
+	    _inherits(CarSubTitle, _React$Component);
+
+	    function CarSubTitle() {
+	        _classCallCheck(this, CarSubTitle);
+
+	        _get(Object.getPrototypeOf(CarSubTitle.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(CarSubTitle, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var children = _props.children;
+	            var className = _props.className;
+
+	            var classes = classnames('mdl-card__menu', {}, className);
+
+	            return React.createElement(
+	                'div',
+	                { className: classes },
+	                children
+	            );
+	        }
+	    }]);
+
+	    return CarSubTitle;
+	})(React.Component);
+
+	CarSubTitle.propTypes = {
+	    className: React.PropTypes.string
+	};
+
+	module.exports = CarSubTitle;
+
+/***/ },
+/* 443 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(190);
+	var classnames = __webpack_require__(402);
+
+	var baseClasses = {
+	    'mdl-card__actions': true
+	};
+
+	var CardActions = (function (_React$Component) {
+	    _inherits(CardActions, _React$Component);
+
+	    function CardActions() {
+	        _classCallCheck(this, CardActions);
+
+	        _get(Object.getPrototypeOf(CardActions.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(CardActions, [{
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var children = _props.children;
+	            var border = _props.border;
+	            var className = _props.className;
+
+	            var classes = classnames('mdl-card__actions', {
+	                'mdl-card--border': border
+	            }, className);
+
+	            return React.createElement(
+	                'div',
+	                { className: classes },
+	                children
+	            );
+	        }
+	    }]);
+
+	    return CardActions;
+	})(React.Component);
+
+	CardActions.propTypes = {
 	    className: React.PropTypes.string,
-	    headType: React.PropTypes.string,
 	    border: React.PropTypes.bool
 	};
 
-	module.exports = CardTitle;
+	module.exports = CardActions;
 
 /***/ }
 /******/ ]);

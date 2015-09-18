@@ -1,4 +1,32 @@
+const React = require('react');
+const classnames = require('classnames');
 
-/**
- * Created by Supini on 16/09/15.
- */
+const baseClasses = {
+    'mdl-card__subtitle-text': true,
+};
+
+class CardSubTitle  extends React.Component {
+
+
+    render() {
+        const {
+            children,
+            className
+            } = this.props;
+
+        const classes = classnames('mdl-card__subtitle-text', {
+        }, className);
+
+        return (
+            <div  className={classes}>
+                {children}
+            </div>
+        );
+    }
+}
+
+CardSubTitle .propTypes = {
+    className: React.PropTypes.string,
+};
+
+module.exports = CardSubTitle ;

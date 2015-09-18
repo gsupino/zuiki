@@ -17,7 +17,8 @@ class Button extends React.Component {
         primary: React.PropTypes.bool,
         accent: React.PropTypes.bool,
         icon: React.PropTypes.bool,
-        mini: React.PropTypes.bool
+        mini: React.PropTypes.bool,
+        onClick: React.PropTypes.func
     }
 
     componentDidMount() {
@@ -32,6 +33,14 @@ class Button extends React.Component {
     componentWillUnmount() {
         const node = React.findDOMNode(this);
         window.componentHandler.downgradeElements(node);
+    }
+
+    handlerClick = (e)=> {
+        console.log(e.type);
+        e.preventDefault();
+        if(this.props.onClick){
+            this.props.onClick();
+        }
     }
 
     render() {
@@ -56,10 +65,10 @@ class Button extends React.Component {
             'mdl-button--primary': primary,
             'mdl-button--accent': accent,
             'mdl-button--icon': icon,
-            'mdl-button--mini-fab': floating && mini
+            'mdl-button--mini-fab': fab && mini
         }, className);
         return (
-            <button {...this.props} className={classes}>
+            <button {...this.props} className={classes} onClick={::this.handlerClick}>
                 {children}
             </button>
         );

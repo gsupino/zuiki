@@ -1,4 +1,3 @@
-
 const React = require('react');
 const classnames = require('classnames');
 
@@ -8,17 +7,23 @@ const baseClasses = {
 
 class Tooltip extends React.Component {
 
-    componentDidMount(){
+    static propTypes = {
+        className: React.PropTypes.string,
+        htmlFor: React.PropTypes.string.isRequired,
+        large: React.PropTypes.bool
+    }
+
+    componentDidMount() {
         const node = React.findDOMNode(this);
         window.componentHandler.upgradeElement(node, 'MaterialTooltip');
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         const node = React.findDOMNode(this);
         window.componentHandler.downgradeElements(node);
     }
 
-    render(){
+    render() {
         const {
             children,
             className,
@@ -31,16 +36,10 @@ class Tooltip extends React.Component {
 
         return (
             <span {...this.props} className={classes}>
-        {children}
-      </span>
+                {children}
+            </span>
         );
     }
 }
-
-Tooltip.propTypes = {
-    className: React.PropTypes.string,
-    htmlFor: React.PropTypes.string.isRequired,
-    large: React.PropTypes.bool
-};
 
 module.exports = Tooltip;

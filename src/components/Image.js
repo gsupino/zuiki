@@ -8,7 +8,8 @@ export default class Image {
         src: React.PropTypes.string,
         width: React.PropTypes.string,
         height: React.PropTypes.string,
-        sizing: React.PropTypes.string
+        sizing: React.PropTypes.string,
+        style:React.PropTypes.object
     }
 
     static defaultProps = {
@@ -46,7 +47,6 @@ export default class Image {
         }else{
             imgComponent=<div style={this.getStyle()}></div>;
         }
-
         return (
             imgComponent
         );

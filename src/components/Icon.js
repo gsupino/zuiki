@@ -6,10 +6,10 @@ export default class Icon extends Component {
     static displayName = 'Icon'
 
     static propTypes = {
+        style: React.PropTypes.object,
         color: React.PropTypes.string,
         hoverColor: React.PropTypes.string
     }
-
 
     static defaultProps = {
         hoverColor: Styles.Colors.pink400
@@ -23,22 +23,19 @@ export default class Icon extends Component {
             hoverColor,
             style
             } = this.props;
-        let spacing = 24;
         let offColor = color ? color :
-            style && style.color ? style.color :
-                Styles.Colors.darkBlack;
+            style && style.color ? style.color : Styles.Colors.darkBlack;
         let onColor = hoverColor ? hoverColor : offColor;
 
         let mergedStyles = mergeAndPrefix({
             position: 'relative',
-            fontSize: spacing,
+            fontSize: 24,
             display: 'inline-block',
             userSelect: 'none',
-            padding:10
+            padding: 10
         }, style, {
             color: this.state.hovered ? onColor : offColor
         });
-
         return mergedStyles;
     }
 
@@ -68,7 +65,6 @@ export default class Icon extends Component {
     }
 
     _handleMouseEnter = ()=> {
-        console.log('mouse enter')
         // hover is needed only when a hoverColor is defined
         if (this.props.hoverColor !== undefined)
             this.setState({hovered: true});

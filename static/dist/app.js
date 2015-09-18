@@ -34002,16 +34002,18 @@
 	                children
 	            );
 	        }
+	    }], [{
+	        key: 'propTypes',
+	        value: {
+	            className: React.PropTypes.string,
+	            htmlFor: React.PropTypes.string.isRequired,
+	            large: React.PropTypes.bool
+	        },
+	        enumerable: true
 	    }]);
 
 	    return Tooltip;
 	})(React.Component);
-
-	Tooltip.propTypes = {
-	    className: React.PropTypes.string,
-	    htmlFor: React.PropTypes.string.isRequired,
-	    large: React.PropTypes.bool
-	};
 
 	module.exports = Tooltip;
 

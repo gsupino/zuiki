@@ -10,16 +10,14 @@ export default class Avatar extends Component {
         icon: React.PropTypes.element,
         size: React.PropTypes.number,
         src: React.PropTypes.string,
-        style: React.PropTypes.object,
+        style: React.PropTypes.object
     }
-
 
     static defaultProps = {
         backgroundColor: 'grey',
         color: 'white',
-        size: 40,
+        size: 40
     }
-
 
     getStyles() {
         let {
@@ -28,7 +26,7 @@ export default class Avatar extends Component {
             icon,
             size,
             src,
-            style,
+            style
             } = this.props;
 
         let styles = {
@@ -41,7 +39,7 @@ export default class Avatar extends Component {
                 display: 'inline-block',
                 border: 'solid 1px rgba(0, 0, 0, 0.08)'
 
-            },
+            }
         };
         let mergedStyles = mergeAndPrefix(styles.root, style);
         return mergedStyles;

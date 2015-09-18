@@ -14,7 +14,6 @@ export default class Toolbar extends Component {
 
 
     static defaultProps = {
-        style: {},
         height:'100px'
     }
 

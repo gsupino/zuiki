@@ -8,15 +8,13 @@ export default class Badge {
 
     static propTypes = {
         style: React.PropTypes.object,
-        notification: React.any,
+        text: React.any,
         isIcon: PropTypes.bool
     }
 
     getStyle() {
-
         return mergeAndPrefix({}, this.props.style, {});
     }
-
 
     render() {
         let classes = classNames({
@@ -25,7 +23,7 @@ export default class Badge {
         });
 
         return (
-            <span className={classes} data-badge={this.props.notification} style={this.getStyle()}>
+            <span className={classes} data-badge={this.props.text} style={this.getStyle()}>
                 {this.props.children}
             </span>
         );

@@ -8,27 +8,37 @@ const baseClasses = {
 
 class Button extends React.Component {
 
-    componentDidMount(){
-        const { ripple } = this.props;
+    static propTypes = {
+        className: React.PropTypes.string,
+        raised: React.PropTypes.bool,
+        fab: React.PropTypes.bool,
+        colored: React.PropTypes.bool,
+        ripple: React.PropTypes.bool,
+        primary: React.PropTypes.bool,
+        accent: React.PropTypes.bool,
+        icon: React.PropTypes.bool,
+        mini: React.PropTypes.bool
+    }
 
+    componentDidMount() {
+        const { ripple } = this.props;
         const node = React.findDOMNode(this);
         window.componentHandler.upgradeElement(node, 'MaterialButton');
-
-        if(ripple){
+        if (ripple) {
             window.componentHandler.upgradeElement(node, 'MaterialRipple');
         }
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         const node = React.findDOMNode(this);
         window.componentHandler.downgradeElements(node);
     }
 
-    render(){
+    render() {
         const {
             children,
             className,
-            floating,
+            fab,
             colored,
             ripple,
             raised,
@@ -39,7 +49,7 @@ class Button extends React.Component {
             } = this.props;
 
         const classes = classnames(baseClasses, {
-            'mdl-button--fab': floating,
+            'mdl-button--fab': fab,
             'mdl-button--colored': colored,
             'mdl-js-ripple-effect': ripple,
             'mdl-button--raised': raised,
@@ -48,7 +58,6 @@ class Button extends React.Component {
             'mdl-button--icon': icon,
             'mdl-button--mini-fab': floating && mini
         }, className);
-
         return (
             <button {...this.props} className={classes}>
                 {children}
@@ -56,17 +65,5 @@ class Button extends React.Component {
         );
     }
 }
-
-Button.propTypes = {
-    className: React.PropTypes.string,
-    floating: React.PropTypes.bool,
-    colored: React.PropTypes.bool,
-    ripple: React.PropTypes.bool,
-    raised: React.PropTypes.bool,
-    primary: React.PropTypes.bool,
-    accent: React.PropTypes.bool,
-    icon: React.PropTypes.bool,
-    mini: React.PropTypes.bool
-};
 
 module.exports = Button;

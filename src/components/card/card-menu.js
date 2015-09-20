@@ -1,4 +1,5 @@
 const React = require('react');
+const mergeAndPrefix = require('../../styles/autoprefix');
 const classnames = require('classnames');
 
 const baseClasses = {
@@ -6,7 +7,13 @@ const baseClasses = {
 };
 
 class CarSubTitle  extends React.Component {
+    static propTypes = {
+        className: React.PropTypes.string,
+    }
 
+    getStyle() {
+        return mergeAndPrefix({}, this.props.style, {});
+    }
 
     render() {
         const {
@@ -18,15 +25,11 @@ class CarSubTitle  extends React.Component {
         }, className);
 
         return (
-            <div  className={classes}>
+            <div  className={classes} style={this.getStyle()}>
                 {children}
             </div>
         );
     }
 }
-
-CarSubTitle .propTypes = {
-    className: React.PropTypes.string,
-};
 
 module.exports = CarSubTitle ;

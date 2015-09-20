@@ -36,7 +36,6 @@ class Button extends React.Component {
     }
 
     handlerClick = (e)=> {
-        console.log(e.type);
         e.preventDefault();
         if(this.props.onClick){
             this.props.onClick();

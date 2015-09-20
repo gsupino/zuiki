@@ -1,4 +1,5 @@
 const React = require('react');
+const mergeAndPrefix = require('../../styles/autoprefix');
 const classnames = require('classnames');
 
 const baseClasses = {
@@ -6,7 +7,15 @@ const baseClasses = {
 };
 
 class Card extends React.Component {
+    static propTypes = {
+        className: React.PropTypes.string,
+        zDepth: React.PropTypes.number,
+        style: React.PropTypes.object
+    }
 
+    getStyle() {
+        return mergeAndPrefix({}, this.props.style, {});
+    }
 
     render(){
         const {
@@ -18,18 +27,12 @@ class Card extends React.Component {
         const classes = classnames(baseClasses, {
             [`mdl-shadow--${this.props.zDepth}dp`]: this.props.zDepth
         }, className);
-
         return (
-            <div {...this.props} className={classes}>
+            <div {...this.props} className={classes} style={this.getStyle()}>
                 {children}
             </div>
         );
     }
 }
-
-Card.propTypes = {
-    className: React.PropTypes.string,
-    zDepth: React.PropTypes.number,
-};
 
 module.exports = Card;

@@ -16,9 +16,11 @@ import Avatar from '../components/avatar';
 import Button from '../components/button';
 import Tooltip from '../components/tooltip';
 import {Card,CardTitle, CardMedia,CardSupportingText,CardSubTitle, CardMenu,CardActions} from '../components/card';
+import Menu from '../components/menu';
+
+let dataTest=['ciao','test','prova'];
 
 class App extends Component {
-
     render() {
         return (
             <View>
@@ -75,7 +77,7 @@ class App extends Component {
                         </Block>
                         <Block flex='2 0 0px'>
                             <Text size="display-4-color-contrast" align="right" transform="capitalize">ciao</Text>
-
+                            <Menu data={dataTest}></Menu>
                         </Block>
                         {this.props.children}
                     </Container>

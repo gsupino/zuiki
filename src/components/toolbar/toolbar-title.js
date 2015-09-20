@@ -11,12 +11,6 @@ export default class ToolbarTitle extends Component {
         style: PropTypes.object,
     }
 
-
-    static defaultProps = {
-        style: {}
-    }
-
-
     getStyle() {
         return mergeAndPrefix({
             //color: rgb(66, 66, 66),
@@ -32,11 +26,9 @@ export default class ToolbarTitle extends Component {
     }
 
     render() {
-        let {style, text, ...other} = this.props;
-
         return (
-            <span style={this.getStyle()} {...other}>
-                {text}
+            <span style={this.getStyle()} >
+                {this.props.text}
             </span>
         );
     }

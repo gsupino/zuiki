@@ -1,4 +1,5 @@
 const React = require('react');
+const mergeAndPrefix = require('../../styles/autoprefix');
 const classnames = require('classnames');
 
 const baseClasses = {
@@ -14,6 +15,10 @@ class CardMedia extends React.Component {
 
     static defaultProps = {
         width: '100%'
+    }
+
+    getStyle() {
+        return mergeAndPrefix({}, this.props.style, {});
     }
 
     render() {
@@ -33,7 +38,7 @@ class CardMedia extends React.Component {
         }, this)
 
         return (
-            <div className={classes}>
+            <div className={classes} style={this.getStyle()}>
                 {newChildren}
             </div>
         );

@@ -1,4 +1,5 @@
 const React = require('react');
+const mergeAndPrefix = require('../../styles/autoprefix');
 const classnames = require('classnames');
 
 const baseClasses = {
@@ -6,7 +7,15 @@ const baseClasses = {
 };
 
 class CardActions extends React.Component {
+    static propTypes = {
+        className: React.PropTypes.string,
+        border: React.PropTypes.bool,
+        style: React.PropTypes.object
+    }
 
+    getStyle() {
+        return mergeAndPrefix({}, this.props.style, {});
+    }
 
     render() {
         const {
@@ -18,18 +27,12 @@ class CardActions extends React.Component {
         const classes = classnames('mdl-card__actions', {
             'mdl-card--border': border
         }, className);
-
         return (
-            <div  className={classes}>
+            <div  className={classes} style={this.getStyle()}>
                 {children}
             </div>
         );
     }
 }
-
-CardActions.propTypes = {
-    className: React.PropTypes.string,
-    border: React.PropTypes.bool
-};
 
 module.exports = CardActions;

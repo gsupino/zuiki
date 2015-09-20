@@ -28447,6 +28447,12 @@
 
 	var _componentsCard = __webpack_require__(419);
 
+	var _componentsMenu = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/menu\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _componentsMenu2 = _interopRequireDefault(_componentsMenu);
+
+	var dataTest = ['ciao', 'test', 'prova'];
+
 	var App = (function (_Component) {
 	    _inherits(App, _Component);
 
@@ -28587,7 +28593,8 @@
 	                                _componentsText2['default'],
 	                                { size: 'display-4-color-contrast', align: 'right', transform: 'capitalize' },
 	                                'ciao'
-	                            )
+	                            ),
+	                            _react2['default'].createElement(_componentsMenu2['default'], { data: dataTest })
 	                        ),
 	                        this.props.children
 	                    )

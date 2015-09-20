@@ -1,12 +1,19 @@
 const React = require('react');
+const mergeAndPrefix = require('../../styles/autoprefix');
 const classnames = require('classnames');
 
 const baseClasses = {
     'mdl-card__supporting-text': true,
 };
 
-class CardSupportingText  extends React.Component {
+class CardSupportingText extends React.Component {
+    static propTypes = {
+        className: React.PropTypes.string,
+    }
 
+    getStyle() {
+        return mergeAndPrefix({}, this.props.style, {});
+    }
 
     render() {
         const {
@@ -14,19 +21,14 @@ class CardSupportingText  extends React.Component {
             className
             } = this.props;
 
-        const classes = classnames('mdl-card__supporting-text', {
-        }, className);
+        const classes = classnames('mdl-card__supporting-text', {}, className);
 
         return (
-            <div  className={classes}>
+            <div className={classes} style={this.getStyle()}>
                 {children}
             </div>
         );
     }
 }
 
-CardSupportingText .propTypes = {
-    className: React.PropTypes.string,
-};
-
-module.exports = CardSupportingText ;
+module.exports = CardSupportingText;

@@ -11,11 +11,6 @@ export default class ToolbarGroup extends Component {
         width: PropTypes.string
     }
 
-
-    static defaultProps = {
-        style: {},
-    }
-
     getStyle() {
         let styles = {
             root: {

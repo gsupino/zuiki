@@ -26,7 +26,6 @@ class Tooltip extends React.Component {
 
     render() {
         var { label, large, children, ...otherProps } = this.props;
-        console.log(this.props.id)
         var id = Math.random().toString(36).substr(2);
 
         if(typeof label === 'string') {

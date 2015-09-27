@@ -28455,6 +28455,10 @@
 
 	var _componentsBaseTooltip2 = _interopRequireDefault(_componentsBaseTooltip);
 
+	var _componentsBaseBadge = __webpack_require__(446);
+
+	var _componentsBaseBadge2 = _interopRequireDefault(_componentsBaseBadge);
+
 	var App = (function (_Component) {
 	    _inherits(App, _Component);
 
@@ -28633,6 +28637,50 @@
 	                                            'via social media'
 	                                        ) },
 	                                    _react2['default'].createElement(_componentsBaseIcon2['default'], { name: 'share' })
+	                                )
+	                            ),
+	                            _react2['default'].createElement(
+	                                'div',
+	                                null,
+	                                _react2['default'].createElement(
+	                                    'p',
+	                                    null,
+	                                    'Number badge on icon'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsBaseBadge2['default'],
+	                                    { text: '1' },
+	                                    _react2['default'].createElement(_componentsIcon2['default'], { name: 'account_box' })
+	                                ),
+	                                _react2['default'].createElement(
+	                                    'p',
+	                                    null,
+	                                    'Icon badge on icon'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsBaseBadge2['default'],
+	                                    { text: '♥' },
+	                                    _react2['default'].createElement(_componentsIcon2['default'], { name: 'account_box' })
+	                                ),
+	                                _react2['default'].createElement(
+	                                    'p',
+	                                    null,
+	                                    'Number badge'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsBaseBadge2['default'],
+	                                    { text: '4' },
+	                                    'Inbox'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    'p',
+	                                    null,
+	                                    'Icon badge'
+	                                ),
+	                                _react2['default'].createElement(
+	                                    _componentsBaseBadge2['default'],
+	                                    { text: '♥' },
+	                                    'Mood'
 	                                )
 	                            ),
 	                            _react2['default'].createElement(
@@ -34761,7 +34809,6 @@
 
 	            var otherProps = _objectWithoutProperties(_props, ['label', 'large', 'children']);
 
-	            console.log(this.props.id);
 	            var id = Math.random().toString(36).substr(2);
 
 	            if (typeof label === 'string') {
@@ -34810,6 +34857,91 @@
 
 	exports['default'] = Tooltip;
 	module.exports = exports['default'];
+
+/***/ },
+/* 446 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(190);
+	var mergeAndPrefix = __webpack_require__(399);
+	var classnames = __webpack_require__(402);
+
+	var baseClasses = {
+	    'mdl-badge': true
+	};
+
+	var Badge = (function (_React$Component) {
+	    _inherits(Badge, _React$Component);
+
+	    function Badge() {
+	        _classCallCheck(this, Badge);
+
+	        _get(Object.getPrototypeOf(Badge.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(Badge, [{
+	        key: 'getStyle',
+	        value: function getStyle() {
+	            return mergeAndPrefix({}, this.props.style, {});
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _props = this.props;
+	            var text = _props.text;
+	            var className = _props.className;
+	            var children = _props.children;
+
+	            var other = _objectWithoutProperties(_props, ['text', 'className', 'children']);
+
+	            var element = undefined;
+	            var classes = classnames(baseClasses, className);
+	            var style = this.getStyle();
+
+	            if (typeof children === 'string') {
+	                element = React.createElement(
+	                    'span',
+	                    null,
+	                    children
+	                );
+	            } else {
+	                element = React.Children.only(this.props.children);
+	            }
+
+	            return React.cloneElement(element, {
+	                className: classes,
+	                'data-badge': this.props.text
+	            });
+	        }
+	    }], [{
+	        key: 'displayName',
+	        value: 'Badge',
+	        enumerable: true
+	    }, {
+	        key: 'propTypes',
+	        value: {
+	            children: React.PropTypes.oneOfType([React.PropTypes.element, React.PropTypes.string]).isRequired,
+	            text: React.PropTypes.string.isRequired
+	        },
+	        enumerable: true
+	    }]);
+
+	    return Badge;
+	})(React.Component);
+
+	module.exports = Badge;
 
 /***/ }
 /******/ ]);

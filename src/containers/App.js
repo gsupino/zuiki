@@ -18,6 +18,7 @@ import Tooltip from '../components/tooltip';
 import {Card,CardTitle, CardMedia,CardSupportingText,CardSubTitle, CardMenu,CardActions} from '../components/card';
 import IconNew from '../components/base/icon';
 import TooltipNew from '../components/base/tooltip';
+import BadgeNew from '../components/base/badge';
 
 
 class App extends Component {
@@ -95,7 +96,21 @@ class App extends Component {
                                     <IconNew name="share" />
                                 </TooltipNew>
                             </div>
+                            <div>
+                                <p>Number badge on icon</p>
+                                <BadgeNew text="1">
+                                    <Icon name="account_box" />
+                                </BadgeNew>
+                                <p>Icon badge on icon</p>
+                                <BadgeNew text="♥">
+                                    <Icon name="account_box" />
+                                </BadgeNew>
 
+                                <p>Number badge</p>
+                                <BadgeNew text="4">Inbox</BadgeNew>
+                                <p>Icon badge</p>
+                                <BadgeNew text="♥">Mood</BadgeNew>
+                            </div>
                             <Text size="display-4-color-contrast" align="right" transform="capitalize">ciao</Text>
                         </Block>
                         {this.props.children}

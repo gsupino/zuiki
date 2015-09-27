@@ -16,9 +16,9 @@ import Avatar from '../components/avatar';
 import Button from '../components/button';
 import Tooltip from '../components/tooltip';
 import {Card,CardTitle, CardMedia,CardSupportingText,CardSubTitle, CardMenu,CardActions} from '../components/card';
-import Menu from '../components/menu';
+import IconNew from '../components/base/icon';
+import TooltipNew from '../components/base/tooltip';
 
-let dataTest=['ciao','test','prova'];
 
 class App extends Component {
     render() {
@@ -76,8 +76,27 @@ class App extends Component {
                             </Card>
                         </Block>
                         <Block flex='2 0 0px'>
+                            <IconNew name='loop'></IconNew>
+                            <div>
+                                <TooltipNew label="Follow">
+                                    <IconNew name="add" />
+                                </TooltipNew>
+
+                                <TooltipNew label="Print" large={true}>
+                                    <p>ciao</p>
+                                </TooltipNew>
+
+
+                                <TooltipNew label={<span>Upload <strong>file.zip</strong></span>}>
+                                    <IconNew name="cloud_upload" />
+                                </TooltipNew>
+
+                                <TooltipNew label={<span>Share your content<br />via social media</span>}>
+                                    <IconNew name="share" />
+                                </TooltipNew>
+                            </div>
+
                             <Text size="display-4-color-contrast" align="right" transform="capitalize">ciao</Text>
-                            <Menu data={dataTest}></Menu>
                         </Block>
                         {this.props.children}
                     </Container>

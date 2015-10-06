@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 const mergeAndPrefix = require('../styles/autoprefix');
-
+//test github
 export default class Avatar extends Component {
     static displayName = 'Avatar'
 

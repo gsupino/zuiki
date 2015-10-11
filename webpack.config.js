@@ -4,6 +4,7 @@ var atImport = require('postcss-import');
 var customProperties = require('postcss-custom-properties');
 var bemLinter = require('postcss-bem-linter');
 var autoprefixer = require('autoprefixer-core');
+var nested=require('postcss-nested');
 
 var commonLoaders = [
     {test: /\.png$/, loader: 'url-loader'},
@@ -60,7 +61,8 @@ module.exports=[
             }),
             autoprefixer(),
             //bemLinter('suit'),
-            customProperties()
+            customProperties(),
+            nested()
         ],
         plugins: [
             new ExtractTextPlugin('app.css'),

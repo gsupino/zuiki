@@ -3,6 +3,7 @@
 @import './typography.css';
 @import './utility.css';
 @import './shadow.css';
+@import './layout.css';
 
 .badge {
     position: relative;

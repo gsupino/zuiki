@@ -113,6 +113,7 @@
     "postcss-modules-extract-imports": "0.0.5",
     "postcss-modules-local-by-default": "0.0.12",
     "postcss-modules-scope": "0.0.8",
+    "postcss-nested": "^1.0.0",
     "react-a11y": "0.2.6",
     "react-hot-loader": "1.2.8",
     "run-sequence": "^1.1.2",

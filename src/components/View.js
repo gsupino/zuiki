@@ -21,7 +21,7 @@ export default class View {
             position: 'relative',
             top: 0,
             left: 0
-        }, this.props.style);
+        }, {});
     }
 
     render() {

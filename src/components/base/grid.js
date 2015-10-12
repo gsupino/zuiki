@@ -1,31 +1,31 @@
 const React = require('react');
 const mergeAndPrefix = require('../../styles/autoprefix');
 const classnames = require('classnames');
-
+ 
 export default class Grid extends React.Component {
     displayName = 'Grid'
-
+ 
     static propTypes = {
         noSpacing: React.PropTypes.bool,
         className: React.PropTypes.string,
         style: React.PropTypes.object
     }
-
+ 
     static defaultProps = {
         noSpacing: false
     }
-
+ 
     getStyle() {
         return mergeAndPrefix({}, this.props.style, {});
     }
-
+ 
     render() {
         var { className,noSpacing } = this.props;
         var classes = classnames('grid', {
             ['grid--no-spacing']: noSpacing
         }, className);
         const style = this.getStyle();
-
+ 
         return (
             <div className={classes} style={style}>
                 {this.props.children}
@@ -33,10 +33,10 @@ export default class Grid extends React.Component {
         );
     }
 }
-
+ 
 class Cell extends React.Component {
     displayName = 'Cell'
-
+ 
     static propTypes = {
         col: React.PropTypes.number,
         colDesktop: React.PropTypes.number,
@@ -48,20 +48,21 @@ class Cell extends React.Component {
         isStretch: React.PropTypes.bool,
         align: React.PropTypes.oneOf(['top', 'middle', 'bottom', 'stretch']),
         style: React.PropTypes.object,
-
+        offset:React.PropTypes.number
+ 
     }
-
+ 
     static defaultProps = {
         col: 0,
         colDesktop: 0,
         colTablet: 0,
-        colPhone: 0,
+        colPhone: 0
     }
-
+ 
     getStyle() {
         return mergeAndPrefix({}, this.props.style, {});
     }
-
+ 
     render() {
         const classes = {
             'cell': true
@@ -93,10 +94,13 @@ class Cell extends React.Component {
         if (typeof this.props.align !== 'undefined') {
             classes[`cell--${this.props.align}`] = true;
         }
+        if(this.props.offset){
+            classes['cell--' + this.props.offset + '-offset'] = true;
+        }
         var newClasses = classnames(classes, this.props.className);
-
+ 
         const style = this.getStyle();
-
+ 
         return (
             <div className={newClasses} style={style}>
                 {this.props.children}
@@ -104,6 +108,6 @@ class Cell extends React.Component {
         );
     }
 }
-
+ 
 export default Grid;
 export { Cell };

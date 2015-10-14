@@ -1,4 +1,5 @@
 const React = require('react');
+const mergeAndPrefix = require('../../styles/autoprefix');
 const classnames = require('classnames');
 import Icon from './icon';
 
@@ -77,7 +78,7 @@ class Button extends React.Component {
         const style = this.getStyle();
         let newChildren=children;
         if (icon || iconName) {
-            newChildren = <Icon name={name}></Icon>;
+            newChildren = <Icon name={iconName}></Icon>;
         }
         return (
             <button {...this.props} className={classes} onClick={::this.handlerClick}>

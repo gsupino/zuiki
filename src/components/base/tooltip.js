@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+const mergeAndPrefix = require('../../styles/js/autoprefix');
 import classNames from 'classnames';
 
 class Tooltip extends React.Component {

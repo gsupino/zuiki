@@ -1,6 +1,6 @@
 import React, {PropTypes}from 'react';
 import Styles from '../styles';
-const mergeAndPrefix = require('../styles/autoprefix');
+const mergeAndPrefix = require('../styles/js/autoprefix');
 import classNames from 'classnames';
 
 /*

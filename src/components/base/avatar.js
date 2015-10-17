@@ -1,51 +1,37 @@
 import React, { Component, PropTypes } from 'react';
-const mergeAndPrefix = require('../styles/autoprefix');
+const mergeAndPrefix = require('../../styles/js/autoprefix');
+const classnames = require('classnames');
+
+const baseClasses = {
+    'avatar': true
+};
 
 export default class Avatar extends Component {
     static displayName = 'Avatar'
 
     static propTypes = {
-        backgroundColor: React.PropTypes.string,
-        color: React.PropTypes.string,
-        icon: React.PropTypes.element,
         size: React.PropTypes.number,
         src: React.PropTypes.string,
+        className: React.PropTypes.string,
         style: React.PropTypes.object
     }
 
-    static defaultProps = {
-        backgroundColor: 'grey',
-        color: 'white',
-        size: 40
-    }
-
-    getStyles() {
-        let {
-            backgroundColor,
-            color,
-            icon,
-            size,
-            src,
-            style
-            } = this.props;
-
-        let styles = {
-            root: {
-                borderColor: 'rgba(0, 0, 0, 0.08)',
-                height: size - 2,
-                width: size - 2,
-                userSelect: 'none',
-                borderRadius: '50%',
-                display: 'inline-block',
-                border: 'solid 1px rgba(0, 0, 0, 0.08)'
-
+    getStyle() {
+        let newStyle = {};
+        if (this.props.size) {
+            newStyle = {
+                width: this.props.size - 2,
+                height: this.props.size - 2,
             }
-        };
-        let mergedStyles = mergeAndPrefix(styles.root, style);
-        return mergedStyles;
+        }
+        return mergeAndPrefix({}, this.props.style, newStyle);
     }
+
 
     render() {
-        return <img src={this.props.src} style={this.getStyles()}/>;
+        const classes = classnames(baseClasses, this.props.className);
+        const style = this.getStyle();
+
+        return <img className={classes}src={this.props.src} style={style}/>;
     }
 }

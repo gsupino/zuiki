@@ -1,5 +1,7 @@
 import React, {PropTypes}from 'react';
-const mergeAndPrefix = require('../styles/js/autoprefix');
+const mergeAndPrefix = require('../../styles/js/autoprefix');
+const classnames = require('classnames');
+
 
 export default class Image {
     static displayName = 'Image'
@@ -9,11 +11,12 @@ export default class Image {
         width: React.PropTypes.string,
         height: React.PropTypes.string,
         sizing: React.PropTypes.string,
+        className: React.PropTypes.string,
         style:React.PropTypes.object
     }
 
     static defaultProps = {
-        height: '100%'
+        height: 'auto'
     }
 
     getStyle() {
@@ -31,6 +34,7 @@ export default class Image {
             style={
                 height: this.props.height,
                 width: this.props.width,
+                maxWidth:'100%',
                 position: 'relative',
                 top: 0,
                 left: 0

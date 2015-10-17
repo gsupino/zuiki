@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Styles from '../../styles';
-const mergeAndPrefix = require('../../styles/autoprefix');
+const mergeAndPrefix = require('../../styles/js/autoprefix');
 import Block from '../Block';
 
 export default class ToolbarTitle extends Component {

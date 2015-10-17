@@ -1,5 +1,5 @@
 const React = require('react');
-const mergeAndPrefix = require('../../styles/autoprefix');
+const mergeAndPrefix = require('../../styles/js/autoprefix');
 const classnames = require('classnames');
  
 export default class Grid extends React.Component {

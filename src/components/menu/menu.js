@@ -1,5 +1,5 @@
 import React, {PropTypes}from 'react';
-const mergeAndPrefix = require('../../styles/autoprefix');
+const mergeAndPrefix = require('../../styles/js/autoprefix');
 const classnames = require('classnames');
 
 const baseClasses = {

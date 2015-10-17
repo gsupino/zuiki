@@ -1,5 +1,5 @@
 import React, {PropTypes}from 'react';
-const mergeAndPrefix = require('../styles/autoprefix');
+const mergeAndPrefix = require('../styles/js/autoprefix');
 import classNames from 'classnames';
 
 export default class Container {

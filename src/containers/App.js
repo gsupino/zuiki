@@ -11,6 +11,8 @@ import Icon from '../components/base/icon';
 import Button from '../components/base/button';
 import Menu from '../components/menu/menu';
 import MenuItem from '../components/menu/menu-item';
+import Avatar from '../components/base/avatar';
+import Image from '../components/base/image';
 
 class App extends Component {
     render() {
@@ -19,6 +21,8 @@ class App extends Component {
                 <Container>
                     <Icon name='mood'></Icon>
                     <Button id="demo-menu-lower-left" icon='true' iconName='more_vert'></Button>
+                    <Avatar src="/public/image/user.jpg" />
+                    <Image src="/public/image/user.jpg"></Image>
                     <Menu target="demo-menu-lower-left">
                         <MenuItem>Some Action</MenuItem>
                         <MenuItem>Another Action</MenuItem>

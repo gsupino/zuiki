@@ -1158,6 +1158,19 @@ ul, ol {
     }
 }
 
+
+.avatar{
+    display: inline-block;
+    border:solid 1px rgba(0, 0, 0, 0.08) ;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    border-radius: 50%;
+    height: 38px;
+    width: 38px;
+}
+
 .badge {
     position: relative;
     white-space: nowrap;

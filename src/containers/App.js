@@ -17,34 +17,28 @@ import Image from '../components/base/image';
 class App extends Component {
     render() {
         return (
-            <View style={{backgroundColor:'white'}}>
-                <Container>
-                    <Icon name='mood'></Icon>
-                    <Button id="demo-menu-lower-left" icon='true' iconName='more_vert'></Button>
-                    <Avatar src="/public/image/user.jpg" />
-                    <Image src="/public/image/user.jpg"></Image>
-                    <Menu target="demo-menu-lower-left">
-                        <MenuItem>Some Action</MenuItem>
-                        <MenuItem>Another Action</MenuItem>
-                        <MenuItem disabled={true}>Disabled Action</MenuItem>
-                        <MenuItem>Yet Another Action</MenuItem>
-                    </Menu>
+            <View style={{backgroundColor:'white'}}> <Container> <Icon name='mood'></Icon>
+                <Button id="demo-menu-lower-left" icon='true' iconName='more_vert'></Button>
+                <Avatar src="/public/image/user.jpg"/> <Menu target="demo-menu-lower-left">
+                    <MenuItem>Some Action</MenuItem> <MenuItem>Another Action</MenuItem>
+                    <MenuItem disabled={true}>Disabled Action</MenuItem>
+                    <MenuItem>Yet Another Action</MenuItem> </Menu>
 
-                    <Grid noSpacing="true" style={{}}>
-                        <Cell col={6} tablet={8} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} offset={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black',height:300}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                        <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
-                    </Grid>
-                </Container>
+                <Grid noSpacing="true" style={{}}>
+                    <Cell col={6} tablet={8} style={{border:'1px solid black'}}>
+                        <Image src="/public/image/user.jpg"></Image>
+                    </Cell>
+                    <Cell col={1} offset={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black',height:300}}></Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell>
+                    <Cell col={1} style={{border:'1px solid black'}}> 1</Cell> </Grid> </Container>
 
             </View>
         );

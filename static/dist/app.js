@@ -28449,13 +28449,15 @@
 	            return _react2['default'].createElement(
 	                _componentsBaseView2['default'],
 	                { style: { backgroundColor: 'white' } },
+	                ' ',
 	                _react2['default'].createElement(
 	                    _componentsBaseContainer2['default'],
 	                    null,
+	                    ' ',
 	                    _react2['default'].createElement(_componentsBaseIcon2['default'], { name: 'mood' }),
 	                    _react2['default'].createElement(_componentsBaseButton2['default'], { id: 'demo-menu-lower-left', icon: 'true', iconName: 'more_vert' }),
 	                    _react2['default'].createElement(_componentsBaseAvatar2['default'], { src: '/public/image/user.jpg' }),
-	                    _react2['default'].createElement(_componentsBaseImage2['default'], { src: '/public/image/user.jpg' }),
+	                    ' ',
 	                    _react2['default'].createElement(
 	                        _componentsMenuMenu2['default'],
 	                        { target: 'demo-menu-lower-left' },
@@ -28464,6 +28466,7 @@
 	                            null,
 	                            'Some Action'
 	                        ),
+	                        ' ',
 	                        _react2['default'].createElement(
 	                            _componentsMenuMenuItem2['default'],
 	                            null,
@@ -28478,7 +28481,8 @@
 	                            _componentsMenuMenuItem2['default'],
 	                            null,
 	                            'Yet Another Action'
-	                        )
+	                        ),
+	                        ' '
 	                    ),
 	                    _react2['default'].createElement(
 	                        _componentsBaseGrid2['default'],
@@ -28486,18 +28490,14 @@
 	                        _react2['default'].createElement(
 	                            _componentsBaseGrid.Cell,
 	                            { col: 6, tablet: 8, style: { border: '1px solid black' } },
-	                            ' 1'
+	                            _react2['default'].createElement(_componentsBaseImage2['default'], { src: '/public/image/user.jpg' })
 	                        ),
 	                        _react2['default'].createElement(
 	                            _componentsBaseGrid.Cell,
 	                            { col: 1, offset: 1, style: { border: '1px solid black' } },
 	                            ' 1'
 	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black', height: 300 } },
-	                            ' 1'
-	                        ),
+	                        _react2['default'].createElement(_componentsBaseGrid.Cell, { col: 1, style: { border: '1px solid black', height: 300 } }),
 	                        _react2['default'].createElement(
 	                            _componentsBaseGrid.Cell,
 	                            { col: 1, style: { border: '1px solid black' } },
@@ -28542,8 +28542,10 @@
 	                            _componentsBaseGrid.Cell,
 	                            { col: 1, style: { border: '1px solid black' } },
 	                            ' 1'
-	                        )
-	                    )
+	                        ),
+	                        ' '
+	                    ),
+	                    ' '
 	                )
 	            );
 	        }
@@ -30834,90 +30836,189 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var _react = __webpack_require__(191);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var mergeAndPrefix = __webpack_require__(400);
-	var classnames = __webpack_require__(402);
+	var PropTypes = _react2['default'].PropTypes;
+	var span = _react2['default'].DOM.span;
 
-	var Image = (function () {
-	    function Image() {
-	        _classCallCheck(this, Image);
+	var Status = {
+	  PENDING: 'pending',
+	  LOADING: 'loading',
+	  LOADED: 'loaded',
+	  FAILED: 'failed'
+	};
+
+	var ImageLoader = (function (_React$Component) {
+	  _inherits(ImageLoader, _React$Component);
+
+	  _createClass(ImageLoader, null, [{
+	    key: 'propTypes',
+	    value: {
+	      wrapper: PropTypes.func,
+	      className: PropTypes.string,
+	      style: PropTypes.object,
+	      preloader: PropTypes.func,
+	      src: PropTypes.string,
+	      onLoad: PropTypes.func,
+	      onError: PropTypes.func,
+	      imgProps: PropTypes.object
+	    },
+	    enumerable: true
+	  }, {
+	    key: 'defaultProps',
+	    value: {
+	      wrapper: span
+	    },
+	    enumerable: true
+	  }]);
+
+	  function ImageLoader(props) {
+	    _classCallCheck(this, ImageLoader);
+
+	    console.log(1);
+	    _get(Object.getPrototypeOf(ImageLoader.prototype), 'constructor', this).call(this, props);
+	    this.state = { status: props.src ? Status.LOADING : Status.PENDING };
+	  }
+
+	  _createClass(ImageLoader, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      if (this.state.status === Status.LOADING) {
+	        this.createLoader();
+	      }
 	    }
+	  }, {
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if (this.props.src !== nextProps.src) {
+	        this.setState({
+	          status: nextProps.src ? Status.LOADING : Status.PENDING
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      if (this.state.status === Status.LOADING && !this.img) {
+	        this.createLoader();
+	      }
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this.destroyLoader();
+	    }
+	  }, {
+	    key: 'getClassName',
+	    value: function getClassName() {
+	      var className = 'imageloader ' + this.state.status;
+	      if (this.props.className) className = className + ' ' + this.props.className;
+	      return className;
+	    }
+	  }, {
+	    key: 'createLoader',
+	    value: function createLoader() {
+	      this.destroyLoader(); // We can only have one loader at a time.
 
-	    _createClass(Image, [{
-	        key: 'getStyle',
-	        value: function getStyle() {
-	            var style = {};
-	            if (this.props.sizing) {
-	                style = {
-	                    backgroundSize: this.props.sizing,
-	                    //backgroundPosition: 'center center',
-	                    backgroundImage: 'url(' + this.props.src + ')',
-	                    backgroundRepeat: 'no-repeat',
-	                    height: this.props.height,
-	                    width: this.props.width
-	                };
-	            } else {
-	                style = {
-	                    height: this.props.height,
-	                    width: this.props.width,
-	                    maxWidth: '100%',
-	                    position: 'relative',
-	                    top: 0,
-	                    left: 0
-	                };
-	            }
-	            return mergeAndPrefix(style, this.props.style);
+	      this.img = new Image();
+	      this.img.onload = this.handleLoad.bind(this);
+	      this.img.onerror = this.handleError.bind(this);
+	      this.img.src = this.props.src;
+	    }
+	  }, {
+	    key: 'destroyLoader',
+	    value: function destroyLoader() {
+	      if (this.img) {
+	        this.img.onload = null;
+	        this.img.onerror = null;
+	        this.img = null;
+	      }
+	    }
+	  }, {
+	    key: 'handleLoad',
+	    value: function handleLoad(event) {
+	      this.destroyLoader();
+	      this.setState({ status: Status.LOADED });
+
+	      if (this.props.onLoad) this.props.onLoad(event);
+	    }
+	  }, {
+	    key: 'handleError',
+	    value: function handleError(error) {
+	      this.destroyLoader();
+	      this.setState({ status: Status.FAILED });
+
+	      if (this.props.onError) this.props.onError(error);
+	    }
+	  }, {
+	    key: 'renderImg',
+	    value: function renderImg() {
+	      var _props = this.props;
+	      var src = _props.src;
+	      var imgProps = _props.imgProps;
+
+	      var props = { src: src };
+
+	      for (var k in imgProps) {
+	        if (imgProps.hasOwnProperty(k)) {
+	          props[k] = imgProps[k];
 	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var imgComponent = '';
-	            if (!this.props.sizing) {
-	                imgComponent = _react2['default'].createElement('img', { src: this.props.src, alt: '', style: this.getStyle() });
-	            } else {
-	                imgComponent = _react2['default'].createElement('div', { style: this.getStyle() });
-	            }
-	            return imgComponent;
-	        }
-	    }], [{
-	        key: 'displayName',
-	        value: 'Image',
-	        enumerable: true
-	    }, {
-	        key: 'propTypes',
-	        value: {
-	            src: _react2['default'].PropTypes.string,
-	            width: _react2['default'].PropTypes.string,
-	            height: _react2['default'].PropTypes.string,
-	            sizing: _react2['default'].PropTypes.string,
-	            className: _react2['default'].PropTypes.string,
-	            style: _react2['default'].PropTypes.object
-	        },
-	        enumerable: true
-	    }, {
-	        key: 'defaultProps',
-	        value: {
-	            height: 'auto'
-	        },
-	        enumerable: true
-	    }]);
+	      }
 
-	    return Image;
-	})();
+	      return _react2['default'].createElement('img', props);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props2;
 
-	exports['default'] = Image;
+	      var wrapperProps = {
+	        className: this.getClassName()
+	      };
+
+	      if (this.props.style) {
+	        wrapperProps.style = this.props.style;
+	      }
+
+	      var wrapperArgs = [wrapperProps];
+
+	      switch (this.state.status) {
+	        case Status.LOADED:
+	          wrapperArgs.push(this.renderImg());
+	          break;
+
+	        case Status.FAILED:
+	          if (this.props.children) wrapperArgs.push(this.props.children);
+	          break;
+
+	        default:
+	          if (this.props.preloader) wrapperArgs.push(this.props.preloader());
+	          break;
+	      }
+
+	      return (_props2 = this.props).wrapper.apply(_props2, wrapperArgs);
+	    }
+	  }]);
+
+	  return ImageLoader;
+	})(_react2['default'].Component);
+
+	exports['default'] = ImageLoader;
 	module.exports = exports['default'];
 
 /***/ },

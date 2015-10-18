@@ -5,6 +5,7 @@
 @import './shadow.css';
 @import './layout.css';
 @import './avatar.css';
+@import './image.css';
 
 .badge {
     position: relative;

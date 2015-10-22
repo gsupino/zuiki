@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-const mergeAndPrefix = require('../../styles/autoprefix');
-import Container from '../Container';
+const mergeAndPrefix = require('../../styles/js/autoprefix');
+const classnames = require('classnames');
+import Grid from '../base/grid';
 
 export default class Toolbar extends Component {
     static displayName = 'Toolbar'
 
     static propTypes = {
         height:PropTypes.string,
+        className: React.PropTypes.string,
         style: PropTypes.object,
         zDepth: PropTypes.number
     }
@@ -16,23 +18,23 @@ export default class Toolbar extends Component {
     }
 
     getStyle() {
-        return mergeAndPrefix({
-            boxSizing: 'border-box',
-            WebkitTapHighlightColor: 'rgba(0,0,0,0)',
-            height: 100,
-            width: '100%',
-            position:'fixed',
-            top:0,
-            left:0
-        }, this.props.style);
+        let newStyle=this.props.style||{};
+        newStyle.height=this.props.height;
+        return mergeAndPrefix({}, newStyle);
     }
 
     render() {
-        let {height,zDepth}=this.props;
+        let {zDepth}=this.props;
+        const classes = classnames('toolbar',
+            {[`shadow--${this.props.zDepth}dp`]: this.props.zDepth},
+            this.props.className);
+        const style = this.getStyle();
+
         return (
-            <Container alignItems='center' height={height} zDepth={zDepth} style={this.getStyle()}>
+            <Grid className={classes} style={style} noSpacing='true'>
                 {this.props.children}
-            </Container>
+            </Grid>
+
         )
     }
 

@@ -1,2 +1,24 @@
-.image { opacity: 0; transition: opacity 0.3s; }
-.image-loaded { opacity: 1; }
+.image {
+    opacity: 0;
+    transition: opacity 0.3s;
+    height: auto;
+    max-width: 100%
+}
+
+.image-loaded {
+    opacity: 1;
+}
+
+.image--background {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+
+.image--background-loaded {
+    opacity: 1;
+}
+

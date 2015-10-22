@@ -480,6 +480,7 @@ ul, ol {
     position: relative;
 }
 
+
 .grid {
     display: -webkit-box;
     display: -webkit-flex;
@@ -493,6 +494,7 @@ ul, ol {
     -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
+    height: 100%;
 }
 
 .grid.grid--no-spacing {
@@ -501,6 +503,16 @@ ul, ol {
 
 .cell {
     box-sizing: border-box;
+    height: 100%;
+}
+
+
+.cell--spacer{
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
 }
 
 .cell--top {
@@ -538,11 +550,11 @@ ul, ol {
 
     .cell {
         margin: 8px;
-        width: calc(100% - 16px);
+        /*width: calc(100% - 16px);*/
     }
 
     .grid--no-spacing > .cell {
-        width: 100%;
+        /*width: 100%;*/
     }
 
     .cell--hide-phone {
@@ -707,11 +719,11 @@ ul, ol {
 
     .cell {
         margin: 8px;
-        width: calc(50% - 16px);
+        /*width: calc(50% - 16px);*/
     }
 
     .grid--no-spacing > .cell {
-        width: 50%;
+        /*width: 50%;*/
     }
 
     .cell--hide-tablet {
@@ -916,11 +928,11 @@ ul, ol {
 
     .cell {
         margin: 8px;
-        width: calc(33.3333333333% - 16px);
+        /*width: calc(33.3333333333% - 16px);*/
     }
 
     .grid--no-spacing > .cell {
-        width: 33.3333333333%;
+        /*width: 33.3333333333%;*/
     }
 
     .cell--hide-desktop {
@@ -1169,6 +1181,45 @@ ul, ol {
     border-radius: 50%;
     height: 38px;
     width: 38px;
+}
+.image {
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+            transition: opacity 0.3s;
+    height: auto;
+    max-width: 100%
+}
+
+.image-loaded {
+    opacity: 1;
+}
+
+.image--background {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+            transition: opacity 0.3s;
+
+}
+
+.image--background-loaded {
+    opacity: 1;
+}
+.toolbar{
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    min-height: 64px;
+    max-height: 1000px;
+    z-index: 3;
+    background-color: rgb(255,255,255);
 }
 
 .badge {

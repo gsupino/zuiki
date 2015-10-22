@@ -17,11 +17,13 @@
     position: relative;
 }
 
+
 .grid {
     display: flex;
     flex-flow: row wrap;
     margin: 0 0 0 0;
     align-items: stretch;
+    height: 100%;
 }
 
 .grid.grid--no-spacing {
@@ -30,6 +32,13 @@
 
 .cell {
     box-sizing: border-box;
+    height: 100%;
+}
+
+
+.cell--spacer{
+    box-sizing: border-box;
+    flex: 1 0 auto;
 }
 
 .cell--top {
@@ -67,11 +76,11 @@
 
     .cell {
         margin: 8px;
-        width: calc(100% - 16px);
+        /*width: calc(100% - 16px);*/
     }
 
     .grid--no-spacing > .cell {
-        width: 100%;
+        /*width: 100%;*/
     }
 
     .cell--hide-phone {
@@ -236,11 +245,11 @@
 
     .cell {
         margin: 8px;
-        width: calc(50% - 16px);
+        /*width: calc(50% - 16px);*/
     }
 
     .grid--no-spacing > .cell {
-        width: 50%;
+        /*width: 50%;*/
     }
 
     .cell--hide-tablet {
@@ -445,11 +454,11 @@
 
     .cell {
         margin: 8px;
-        width: calc(33.3333333333% - 16px);
+        /*width: calc(33.3333333333% - 16px);*/
     }
 
     .grid--no-spacing > .cell {
-        width: 33.3333333333%;
+        /*width: 33.3333333333%;*/
     }
 
     .cell--hide-desktop {

@@ -83,13 +83,13 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reduxCreate = __webpack_require__(413);
+	var _reduxCreate = __webpack_require__(416);
 
 	var _reduxCreate2 = _interopRequireDefault(_reduxCreate);
 
 	var _reactRedux = __webpack_require__(378);
 
-	__webpack_require__(426);
+	__webpack_require__(429);
 
 	var history = new _reactRouterLibBrowserHistory2['default']();
 	var dest = document.getElementById('content');
@@ -28349,11 +28349,11 @@
 
 	var _containersApp2 = _interopRequireDefault(_containersApp);
 
-	var _containersHome = __webpack_require__(411);
+	var _containersHome = __webpack_require__(414);
 
 	var _containersHome2 = _interopRequireDefault(_containersHome);
 
-	var _containersTest = __webpack_require__(412);
+	var _containersTest = __webpack_require__(415);
 
 	var _containersTest2 = _interopRequireDefault(_containersTest);
 
@@ -28434,6 +28434,8 @@
 
 	var _componentsBaseImage2 = _interopRequireDefault(_componentsBaseImage);
 
+	var _componentsToolbar = __webpack_require__(411);
+
 	var App = (function (_Component) {
 	    _inherits(App, _Component);
 
@@ -28449,103 +28451,89 @@
 	            return _react2['default'].createElement(
 	                _componentsBaseView2['default'],
 	                { style: { backgroundColor: 'white' } },
-	                ' ',
 	                _react2['default'].createElement(
 	                    _componentsBaseContainer2['default'],
 	                    null,
-	                    ' ',
-	                    _react2['default'].createElement(_componentsBaseIcon2['default'], { name: 'mood' }),
-	                    _react2['default'].createElement(_componentsBaseButton2['default'], { id: 'demo-menu-lower-left', icon: 'true', iconName: 'more_vert' }),
-	                    _react2['default'].createElement(_componentsBaseAvatar2['default'], { src: '/public/image/user.jpg' }),
-	                    ' ',
 	                    _react2['default'].createElement(
-	                        _componentsMenuMenu2['default'],
-	                        { target: 'demo-menu-lower-left' },
+	                        _componentsToolbar.Toolbar,
+	                        { height: 100, zDepth: 2 },
 	                        _react2['default'].createElement(
-	                            _componentsMenuMenuItem2['default'],
-	                            null,
-	                            'Some Action'
+	                            _componentsBaseGrid.Cell,
+	                            { col: 3, style: { border: '1px solid black' } },
+	                            _react2['default'].createElement(_componentsBaseImage2['default'], { sizing: 'contain', src: '/public/image/user.jpg' })
 	                        ),
-	                        ' ',
+	                        _react2['default'].createElement(_componentsBaseButton2['default'], { id: 'demo-menu-lower-left', icon: 'true', iconName: 'more_vert' }),
 	                        _react2['default'].createElement(
-	                            _componentsMenuMenuItem2['default'],
-	                            null,
-	                            'Another Action'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsMenuMenuItem2['default'],
-	                            { disabled: true },
-	                            'Disabled Action'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsMenuMenuItem2['default'],
-	                            null,
-	                            'Yet Another Action'
-	                        ),
-	                        ' '
+	                            _componentsMenuMenu2['default'],
+	                            { target: 'demo-menu-lower-left' },
+	                            _react2['default'].createElement(
+	                                _componentsMenuMenuItem2['default'],
+	                                null,
+	                                'Some Action'
+	                            ),
+	                            ' ',
+	                            _react2['default'].createElement(
+	                                _componentsMenuMenuItem2['default'],
+	                                null,
+	                                'Another Action'
+	                            ),
+	                            _react2['default'].createElement(
+	                                _componentsMenuMenuItem2['default'],
+	                                { disabled: true },
+	                                'Disabled Action'
+	                            ),
+	                            _react2['default'].createElement(
+	                                _componentsMenuMenuItem2['default'],
+	                                null,
+	                                'Yet Another Action'
+	                            )
+	                        )
 	                    ),
 	                    _react2['default'].createElement(
-	                        _componentsBaseGrid2['default'],
-	                        { noSpacing: 'true', style: {} },
+	                        _componentsBaseContainer2['default'],
+	                        { style: { paddingTop: '100' } },
+	                        _react2['default'].createElement(_componentsBaseIcon2['default'], { name: 'mood' }),
+	                        _react2['default'].createElement(_componentsBaseAvatar2['default'], { src: '/public/image/user.jpg' }),
 	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 6, tablet: 8, style: { border: '1px solid black' } },
-	                            _react2['default'].createElement(_componentsBaseImage2['default'], { src: '/public/image/user.jpg' })
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, offset: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(_componentsBaseGrid.Cell, { col: 1, style: { border: '1px solid black', height: 300 } }),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        _react2['default'].createElement(
-	                            _componentsBaseGrid.Cell,
-	                            { col: 1, style: { border: '1px solid black' } },
-	                            ' 1'
-	                        ),
-	                        ' '
-	                    ),
-	                    ' '
+	                            _componentsBaseGrid2['default'],
+	                            { height: '50%', noSpacing: 'true', style: {} },
+	                            _react2['default'].createElement(
+	                                _componentsBaseGrid.Cell,
+	                                { height: '50%', col: 6, tablet: 8, style: { border: '1px solid black' } },
+	                                _react2['default'].createElement(_componentsBaseImage2['default'], { sizing: 'cover', src: '/public/image/user.jpg' })
+	                            ),
+	                            _react2['default'].createElement(
+	                                _componentsBaseGrid.Cell,
+	                                { col: 1, isSpacer: 'true', style: { border: '1px solid black' } },
+	                                ' 1'
+	                            ),
+	                            _react2['default'].createElement(
+	                                _componentsBaseGrid.Cell,
+	                                { col: 1, style: { border: '1px solid black' } },
+	                                '2'
+	                            ),
+	                            _react2['default'].createElement(
+	                                _componentsBaseGrid.Cell,
+	                                { col: 1, style: { border: '1px solid black' } },
+	                                ' 3'
+	                            ),
+	                            _react2['default'].createElement(
+	                                _componentsBaseGrid.Cell,
+	                                { col: 1, style: { border: '1px solid black' } },
+	                                ' 4'
+	                            ),
+	                            _react2['default'].createElement(
+	                                _componentsBaseGrid.Cell,
+	                                { col: 1, style: { border: '1px solid black' } },
+	                                ' 5'
+	                            ),
+	                            _react2['default'].createElement(
+	                                _componentsBaseGrid.Cell,
+	                                { col: 1, style: { border: '1px solid black' } },
+	                                ' 6'
+	                            )
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -30163,7 +30151,8 @@
 	    _createClass(Grid, [{
 	        key: 'getStyle',
 	        value: function getStyle() {
-	            return mergeAndPrefix({}, this.props.style, {});
+	            var newStyle = this.props.height ? { height: this.props.height } : {};
+	            return mergeAndPrefix(newStyle, this.props.style, {});
 	        }
 	    }, {
 	        key: 'render',
@@ -30186,7 +30175,8 @@
 	        value: {
 	            noSpacing: React.PropTypes.bool,
 	            className: React.PropTypes.string,
-	            style: React.PropTypes.object
+	            style: React.PropTypes.object,
+	            height: React.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
@@ -30216,7 +30206,8 @@
 	    _createClass(Cell, [{
 	        key: 'getStyle',
 	        value: function getStyle() {
-	            return mergeAndPrefix({}, this.props.style, {});
+	            var newStyle = this.props.height ? { height: this.props.height } : {};
+	            return mergeAndPrefix(newStyle, this.props.style, {});
 	        }
 	    }, {
 	        key: 'render',
@@ -30254,6 +30245,11 @@
 	            if (this.props.offset) {
 	                classes['cell--' + this.props.offset + '-offset'] = true;
 	            }
+	            if (this.props.isSpacer) {
+	                classes = {
+	                    'cell--spacer': true
+	                };
+	            }
 	            var newClasses = classnames(classes, this.props.className);
 
 	            var style = this.getStyle();
@@ -30277,8 +30273,9 @@
 	            isStretch: React.PropTypes.bool,
 	            align: React.PropTypes.oneOf(['top', 'middle', 'bottom', 'stretch']),
 	            style: React.PropTypes.object,
-	            offset: React.PropTypes.number
-
+	            offset: React.PropTypes.number,
+	            isSpacer: React.PropTypes.bool,
+	            height: React.PropTypes.string
 	        },
 	        enumerable: true
 	    }, {
@@ -30836,7 +30833,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	  value: true
+	    value: true
 	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -30853,169 +30850,169 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var classnames = __webpack_require__(402);
+
 	var PropTypes = _react2['default'].PropTypes;
+	0;
 	var span = _react2['default'].DOM.span;
 
 	var Status = {
-	  PENDING: 'pending',
-	  LOADING: 'loading',
-	  LOADED: 'loaded',
-	  FAILED: 'failed'
+	    PENDING: 'pending',
+	    LOADING: 'loading',
+	    LOADED: 'loaded',
+	    FAILED: 'failed'
 	};
 
 	var ImageLoader = (function (_React$Component) {
-	  _inherits(ImageLoader, _React$Component);
+	    _inherits(ImageLoader, _React$Component);
 
-	  _createClass(ImageLoader, null, [{
-	    key: 'propTypes',
-	    value: {
-	      wrapper: PropTypes.func,
-	      className: PropTypes.string,
-	      style: PropTypes.object,
-	      preloader: PropTypes.func,
-	      src: PropTypes.string,
-	      onLoad: PropTypes.func,
-	      onError: PropTypes.func,
-	      imgProps: PropTypes.object
-	    },
-	    enumerable: true
-	  }, {
-	    key: 'defaultProps',
-	    value: {
-	      wrapper: span
-	    },
-	    enumerable: true
-	  }]);
+	    _createClass(ImageLoader, null, [{
+	        key: 'propTypes',
+	        value: {
+	            className: PropTypes.string,
+	            style: PropTypes.object,
+	            preloader: PropTypes.func,
+	            src: PropTypes.string,
+	            onLoad: PropTypes.func,
+	            onError: PropTypes.func,
+	            sizing: _react2['default'].PropTypes.string
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {},
+	        enumerable: true
+	    }]);
 
-	  function ImageLoader(props) {
-	    _classCallCheck(this, ImageLoader);
+	    function ImageLoader(props) {
+	        _classCallCheck(this, ImageLoader);
 
-	    console.log(1);
-	    _get(Object.getPrototypeOf(ImageLoader.prototype), 'constructor', this).call(this, props);
-	    this.state = { status: props.src ? Status.LOADING : Status.PENDING };
-	  }
+	        _get(Object.getPrototypeOf(ImageLoader.prototype), 'constructor', this).call(this, props);
+	        this.state = { status: props.src ? Status.LOADING : Status.PENDING };
+	    }
 
-	  _createClass(ImageLoader, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      if (this.state.status === Status.LOADING) {
-	        this.createLoader();
-	      }
-	    }
-	  }, {
-	    key: 'componentWillReceiveProps',
-	    value: function componentWillReceiveProps(nextProps) {
-	      if (this.props.src !== nextProps.src) {
-	        this.setState({
-	          status: nextProps.src ? Status.LOADING : Status.PENDING
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate() {
-	      if (this.state.status === Status.LOADING && !this.img) {
-	        this.createLoader();
-	      }
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      this.destroyLoader();
-	    }
-	  }, {
-	    key: 'getClassName',
-	    value: function getClassName() {
-	      var className = 'imageloader ' + this.state.status;
-	      if (this.props.className) className = className + ' ' + this.props.className;
-	      return className;
-	    }
-	  }, {
-	    key: 'createLoader',
-	    value: function createLoader() {
-	      this.destroyLoader(); // We can only have one loader at a time.
-
-	      this.img = new Image();
-	      this.img.onload = this.handleLoad.bind(this);
-	      this.img.onerror = this.handleError.bind(this);
-	      this.img.src = this.props.src;
-	    }
-	  }, {
-	    key: 'destroyLoader',
-	    value: function destroyLoader() {
-	      if (this.img) {
-	        this.img.onload = null;
-	        this.img.onerror = null;
-	        this.img = null;
-	      }
-	    }
-	  }, {
-	    key: 'handleLoad',
-	    value: function handleLoad(event) {
-	      this.destroyLoader();
-	      this.setState({ status: Status.LOADED });
-
-	      if (this.props.onLoad) this.props.onLoad(event);
-	    }
-	  }, {
-	    key: 'handleError',
-	    value: function handleError(error) {
-	      this.destroyLoader();
-	      this.setState({ status: Status.FAILED });
-
-	      if (this.props.onError) this.props.onError(error);
-	    }
-	  }, {
-	    key: 'renderImg',
-	    value: function renderImg() {
-	      var _props = this.props;
-	      var src = _props.src;
-	      var imgProps = _props.imgProps;
-
-	      var props = { src: src };
-
-	      for (var k in imgProps) {
-	        if (imgProps.hasOwnProperty(k)) {
-	          props[k] = imgProps[k];
+	    _createClass(ImageLoader, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            if (this.state.status === Status.LOADING) {
+	                this.createLoader();
+	            }
 	        }
-	      }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            if (this.props.src !== nextProps.src) {
+	                this.setState({
+	                    status: nextProps.src ? Status.LOADING : Status.PENDING
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate() {
+	            if (this.state.status === Status.LOADING && !this.img) {
+	                this.createLoader();
+	            }
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            this.destroyLoader();
+	        }
+	    }, {
+	        key: 'getClassName',
+	        value: function getClassName() {
+	            var baseClass = undefined;
+	            if (this.props.sizing) {
+	                baseClass = 'image--background';
+	            } else {
+	                baseClass = 'image';
+	            }
+	            var eventClass = baseClass + '-' + this.state.status;
+	            var className = classnames(baseClass, eventClass);
 
-	      return _react2['default'].createElement('img', props);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      var _props2;
+	            if (this.props.className) className = className + ' ' + this.props.className;
+	            return className;
+	        }
+	    }, {
+	        key: 'createLoader',
+	        value: function createLoader() {
+	            this.destroyLoader(); // We can only have one loader at a time.
 
-	      var wrapperProps = {
-	        className: this.getClassName()
-	      };
+	            this.img = new Image();
+	            this.img.onload = this.handleLoad.bind(this);
+	            this.img.onerror = this.handleError.bind(this);
+	            this.img.src = this.props.src;
+	        }
+	    }, {
+	        key: 'destroyLoader',
+	        value: function destroyLoader() {
+	            if (this.img) {
+	                this.img.onload = null;
+	                this.img.onerror = null;
+	                this.img = null;
+	            }
+	        }
+	    }, {
+	        key: 'handleLoad',
+	        value: function handleLoad(event) {
+	            this.destroyLoader();
+	            this.setState({ status: Status.LOADED });
 
-	      if (this.props.style) {
-	        wrapperProps.style = this.props.style;
-	      }
+	            if (this.props.onLoad) this.props.onLoad(event);
+	        }
+	    }, {
+	        key: 'handleError',
+	        value: function handleError(error) {
+	            this.destroyLoader();
+	            this.setState({ status: Status.FAILED });
 
-	      var wrapperArgs = [wrapperProps];
+	            if (this.props.onError) this.props.onError(error);
+	        }
+	    }, {
+	        key: 'renderImg',
+	        value: function renderImg(className, style) {
+	            var _props = this.props;
+	            var src = _props.src;
+	            var sizing = _props.sizing;
 
-	      switch (this.state.status) {
-	        case Status.LOADED:
-	          wrapperArgs.push(this.renderImg());
-	          break;
+	            if (!sizing) {
+	                return _react2['default'].createElement('img', { src: src, className: className, style: style });
+	            } else {
+	                var newStyle = style || {};
+	                newStyle.backgroundImage = 'url(' + src + ')';
+	                newStyle.backgroundSize = this.props.sizing;
+	                return _react2['default'].createElement('div', { className: className, style: newStyle });
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var classes = this.getClassName();
 
-	        case Status.FAILED:
-	          if (this.props.children) wrapperArgs.push(this.props.children);
-	          break;
+	            var component = undefined;
 
-	        default:
-	          if (this.props.preloader) wrapperArgs.push(this.props.preloader());
-	          break;
-	      }
+	            switch (this.state.status) {
+	                case Status.LOADED:
+	                    component = this.renderImg(classes);
+	                    break;
+	                case Status.FAILED:
+	                    //if (this.props.children) wrapperArgs.push(this.props.children);
+	                    break;
+	                case Status.LOADING:
+	                    component = this.renderImg(classes);
+	                    break;
+	                default:
+	                    component = _react2['default'].createElement('div', null);
+	                    //if (this.props.preloader) wrapperArgs.push(this.props.preloader());
+	                    break;
+	            }
 
-	      return (_props2 = this.props).wrapper.apply(_props2, wrapperArgs);
-	    }
-	  }]);
+	            return component;
+	        }
+	    }]);
 
-	  return ImageLoader;
+	    return ImageLoader;
 	})(_react2['default'].Component);
 
 	exports['default'] = ImageLoader;
@@ -31023,16 +31020,208 @@
 
 /***/ },
 /* 411 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	/**
-	 * Created by gianlucasupino on 14/10/2015.
-	 */
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _toolbar = __webpack_require__(412);
+
+	var _toolbar2 = _interopRequireDefault(_toolbar);
+
+	exports.Toolbar = _toolbar2['default'];
+
+	var _toolbarGroup = __webpack_require__(413);
+
+	var _toolbarGroup2 = _interopRequireDefault(_toolbarGroup);
+
+	exports.ToolbarGroup = _toolbarGroup2['default'];
+
+	//export ToolbarTitle from './toolbar-title';
+	//export ToolbarSpace from './toolbar-space';
 
 /***/ },
 /* 412 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(191);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _baseGrid = __webpack_require__(403);
+
+	var _baseGrid2 = _interopRequireDefault(_baseGrid);
+
+	var mergeAndPrefix = __webpack_require__(400);
+	var classnames = __webpack_require__(402);
+
+	var Toolbar = (function (_Component) {
+	    _inherits(Toolbar, _Component);
+
+	    function Toolbar() {
+	        _classCallCheck(this, Toolbar);
+
+	        _get(Object.getPrototypeOf(Toolbar.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(Toolbar, [{
+	        key: 'getStyle',
+	        value: function getStyle() {
+	            var newStyle = this.props.style || {};
+	            newStyle.height = this.props.height;
+	            return mergeAndPrefix({}, newStyle);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var zDepth = this.props.zDepth;
+
+	            var classes = classnames('toolbar', _defineProperty({}, 'shadow--' + this.props.zDepth + 'dp', this.props.zDepth), this.props.className);
+	            var style = this.getStyle();
+
+	            return _react2['default'].createElement(
+	                _baseGrid2['default'],
+	                { className: classes, style: style, noSpacing: 'true' },
+	                this.props.children
+	            );
+	        }
+	    }], [{
+	        key: 'displayName',
+	        value: 'Toolbar',
+	        enumerable: true
+	    }, {
+	        key: 'propTypes',
+	        value: {
+	            height: _react.PropTypes.string,
+	            className: _react2['default'].PropTypes.string,
+	            style: _react.PropTypes.object,
+	            zDepth: _react.PropTypes.number
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            height: '100px'
+	        },
+	        enumerable: true
+	    }]);
+
+	    return Toolbar;
+	})(_react.Component);
+
+	exports['default'] = Toolbar;
+	module.exports = exports['default'];
+
+/***/ },
+/* 413 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(191);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _baseGrid = __webpack_require__(403);
+
+	var _baseGrid2 = _interopRequireDefault(_baseGrid);
+
+	var mergeAndPrefix = __webpack_require__(400);
+	var classnames = __webpack_require__(402);
+
+	var ToolbarGroup = (function (_Component) {
+	    _inherits(ToolbarGroup, _Component);
+
+	    function ToolbarGroup() {
+	        _classCallCheck(this, ToolbarGroup);
+
+	        _get(Object.getPrototypeOf(ToolbarGroup.prototype), 'constructor', this).apply(this, arguments);
+	    }
+
+	    _createClass(ToolbarGroup, [{
+	        key: 'getStyle',
+	        value: function getStyle() {
+	            var newStyle = this.props.style || {};
+	            newStyle.height = this.props.height;
+	            return mergeAndPrefix({}, newStyle);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var classes = classnames('toolbar--group', this.props.className);
+	            var style = this.getStyle();
+
+	            return _react2['default'].createElement(
+	                'div',
+	                { className: classes, style: style },
+	                this.props.children
+	            );
+	        }
+	    }], [{
+	        key: 'displayName',
+	        value: 'ToolbarGroup',
+	        enumerable: true
+	    }, {
+	        key: 'propTypes',
+	        value: {
+	            height: _react.PropTypes.string,
+	            className: _react2['default'].PropTypes.string,
+	            style: _react.PropTypes.object
+	        },
+	        enumerable: true
+	    }, {
+	        key: 'defaultProps',
+	        value: {
+	            height: '100px'
+	        },
+	        enumerable: true
+	    }]);
+
+	    return ToolbarGroup;
+	})(_react.Component);
+
+	exports['default'] = ToolbarGroup;
+	module.exports = exports['default'];
+
+/***/ },
+/* 414 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -31042,7 +31231,17 @@
 	 */
 
 /***/ },
-/* 413 */
+/* 415 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Created by gianlucasupino on 14/10/2015.
+	 */
+
+/***/ },
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31057,19 +31256,19 @@
 
 	var _redux = __webpack_require__(386);
 
-	var _reducers = __webpack_require__(414);
+	var _reducers = __webpack_require__(417);
 
 	var reducers = _interopRequireWildcard(_reducers);
 
-	var _reduxThunk = __webpack_require__(417);
+	var _reduxThunk = __webpack_require__(420);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _apiMiddleware = __webpack_require__(418);
+	var _apiMiddleware = __webpack_require__(421);
 
 	var _apiMiddleware2 = _interopRequireDefault(_apiMiddleware);
 
-	var _loggerMiddleware = __webpack_require__(425);
+	var _loggerMiddleware = __webpack_require__(428);
 
 	var _loggerMiddleware2 = _interopRequireDefault(_loggerMiddleware);
 
@@ -31095,7 +31294,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 414 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31106,20 +31305,20 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _image2 = __webpack_require__(415);
+	var _image2 = __webpack_require__(418);
 
 	var _image3 = _interopRequireDefault(_image2);
 
 	exports.image = _image3['default'];
 
-	var _user2 = __webpack_require__(416);
+	var _user2 = __webpack_require__(419);
 
 	var _user3 = _interopRequireDefault(_user2);
 
 	exports.user = _user3['default'];
 
 /***/ },
-/* 415 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31167,7 +31366,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 416 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31215,7 +31414,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 417 */
+/* 420 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -31237,7 +31436,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 418 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31250,7 +31449,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _url = __webpack_require__(419);
+	var _url = __webpack_require__(422);
 
 	var _url2 = _interopRequireDefault(_url);
 
@@ -31328,7 +31527,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 419 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -31352,7 +31551,7 @@
 	// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 	// USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-	var punycode = __webpack_require__(420);
+	var punycode = __webpack_require__(423);
 
 	exports.parse = urlParse;
 	exports.resolve = urlResolve;
@@ -31424,7 +31623,7 @@
 	      'gopher:': true,
 	      'file:': true
 	    },
-	    querystring = __webpack_require__(422);
+	    querystring = __webpack_require__(425);
 
 	function urlParse(url, parseQueryString, slashesDenoteHost) {
 	  if (url && isObject(url) && url instanceof Url) return url;
@@ -32041,7 +32240,7 @@
 
 
 /***/ },
-/* 420 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! https://mths.be/punycode v1.3.2 by @mathias */
@@ -32573,10 +32772,10 @@
 
 	}(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(421)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(424)(module), (function() { return this; }())))
 
 /***/ },
-/* 421 */
+/* 424 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -32592,17 +32791,17 @@
 
 
 /***/ },
-/* 422 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	exports.decode = exports.parse = __webpack_require__(423);
-	exports.encode = exports.stringify = __webpack_require__(424);
+	exports.decode = exports.parse = __webpack_require__(426);
+	exports.encode = exports.stringify = __webpack_require__(427);
 
 
 /***/ },
-/* 423 */
+/* 426 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -32688,7 +32887,7 @@
 
 
 /***/ },
-/* 424 */
+/* 427 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -32758,7 +32957,7 @@
 
 
 /***/ },
-/* 425 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32814,19 +33013,19 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 426 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(427);
+	__webpack_require__(430);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 427 */
+/* 430 */
 /***/ function(module, exports) {
 
 	(function() {

@@ -6,6 +6,7 @@
 @import './layout.css';
 @import './avatar.css';
 @import './image.css';
+@import './toolbar.css';
 
 .badge {
     position: relative;

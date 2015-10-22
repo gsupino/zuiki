@@ -1,31 +1,33 @@
 const React = require('react');
 const mergeAndPrefix = require('../../styles/js/autoprefix');
 const classnames = require('classnames');
- 
+
 export default class Grid extends React.Component {
     displayName = 'Grid'
- 
+
     static propTypes = {
         noSpacing: React.PropTypes.bool,
         className: React.PropTypes.string,
-        style: React.PropTypes.object
+        style: React.PropTypes.object,
+        height:React.PropTypes.string
     }
- 
+
     static defaultProps = {
         noSpacing: false
     }
- 
+
     getStyle() {
-        return mergeAndPrefix({}, this.props.style, {});
+        let newStyle=this.props.height?{height:this.props.height}:{};
+        return mergeAndPrefix(newStyle, this.props.style, {});
     }
- 
+
     render() {
         var { className,noSpacing } = this.props;
         var classes = classnames('grid', {
             ['grid--no-spacing']: noSpacing
         }, className);
         const style = this.getStyle();
- 
+
         return (
             <div className={classes} style={style}>
                 {this.props.children}
@@ -33,10 +35,10 @@ export default class Grid extends React.Component {
         );
     }
 }
- 
+
 class Cell extends React.Component {
     displayName = 'Cell'
- 
+
     static propTypes = {
         col: React.PropTypes.number,
         colDesktop: React.PropTypes.number,
@@ -48,23 +50,25 @@ class Cell extends React.Component {
         isStretch: React.PropTypes.bool,
         align: React.PropTypes.oneOf(['top', 'middle', 'bottom', 'stretch']),
         style: React.PropTypes.object,
-        offset:React.PropTypes.number
- 
+        offset: React.PropTypes.number,
+        isSpacer: React.PropTypes.bool,
+        height:React.PropTypes.string
     }
- 
+
     static defaultProps = {
         col: 0,
         colDesktop: 0,
         colTablet: 0,
         colPhone: 0
     }
- 
+
     getStyle() {
-        return mergeAndPrefix({}, this.props.style, {});
+        let newStyle=this.props.height?{height:this.props.height}:{};
+        return mergeAndPrefix(newStyle, this.props.style, {});
     }
- 
+
     render() {
-        const classes = {
+        let classes = {
             'cell': true
         };
         if (this.props.col != 0) {
@@ -94,13 +98,18 @@ class Cell extends React.Component {
         if (typeof this.props.align !== 'undefined') {
             classes[`cell--${this.props.align}`] = true;
         }
-        if(this.props.offset){
+        if (this.props.offset) {
             classes['cell--' + this.props.offset + '-offset'] = true;
         }
+        if (this.props.isSpacer) {
+            classes = {
+                'cell--spacer': true
+            }
+        }
         var newClasses = classnames(classes, this.props.className);
- 
+
         const style = this.getStyle();
- 
+
         return (
             <div className={newClasses} style={style}>
                 {this.props.children}
@@ -108,6 +117,6 @@ class Cell extends React.Component {
         );
     }
 }
- 
+
 export default Grid;
 export { Cell };

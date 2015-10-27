@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --watch",
     "serve": "browser-sync start --server --files \"index.html,build/**\"",
-    "start": "parallelshell \"npm run build\" \"npm run serve\"",
+    "start-prod": "NODE_ENV=production node ./server.js",
     "test": "eslint src"
   },
   "author": "gianluca supino",

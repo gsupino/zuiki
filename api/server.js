@@ -10,7 +10,7 @@ const express=require('express');
 const config=require('./config/environment')
 
 //Start the Adapter services
-require('./adapters/adapterMongo');
+setTimeout(require('./adapters/adapterMongo'),10000);
 
 
 //Setup server

@@ -6,6 +6,7 @@ import config from '../config/environment';
 class AdapterMongo {
 
     constructor() {
+        
         this.db = monk(config.mongo.uri, config.mongo.options);
     }
 

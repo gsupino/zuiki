@@ -2,22 +2,24 @@
 
 // Production specific configuration
 // =================================
+
+var MONGO_ADDR = process.env.MONGO_PORT_27017_TCP_ADDR || 'localhost';
+var MONGO_PORT = process.env.MONGO_PORT_27017_TCP_PORT || 27017;
+
 module.exports = {
-  // Server IP
-  ip:       process.env.OPENSHIFT_NODEJS_IP ||
-            process.env.IP ||
-            undefined,
+    // Server IP
+    ip: process.env.IP || undefined,
 
-  // Server port
-  port:     process.env.OPENSHIFT_NODEJS_PORT ||
-            process.env.PORT ||
-            8080,
+    // Server port
+    port: process.env.PORT || 8080,
 
-  // MongoDB connection options
-  mongo: {
-    uri:    process.env.MONGOLAB_URI ||
-            process.env.MONGOHQ_URL ||
-            process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME ||
-            'mongodb://localhost/slushy'
-  }
+    // MongoDB connection options
+    mongo: {
+        uri: 'mongodb://' + MONGO_ADDR + ':' + MONGO_PORT + '/mariabakery'
+    },
+
+    // In production our secret will be defined in a environment variable on the server
+    secrets: {
+        session: process.env.SESSION_SECRET
+    }
 };

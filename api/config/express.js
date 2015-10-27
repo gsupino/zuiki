@@ -16,9 +16,6 @@ export function expressConfig(app) {
     // Gzip all the things
     app.use(compression());
 
-    app.use('/public', express.static(appRoot + '/build'));
-
-
     // Cross-origin resource sharing
     app.use(cors());
 

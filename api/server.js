@@ -2,8 +2,6 @@
 require('babel/register')({
   stage: 0
 });
-const appRoot = require('app-root-path').path;
-//require(appRoot+'/shared/init');
 
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -17,10 +15,8 @@ require('./adapters/adapterMongo');
 
 //Setup server
 const server=express();
-let serverRoutes=require('./routes').serverRoutes;
-let expressConfig=require('./config/express').expressConfig;
-expressConfig(server);
-serverRoutes(server);
+require('./config/express').expressConfig(server);
+require('./routes').serverRoutes(server);
 
 //Start server
 const port = config.port;
